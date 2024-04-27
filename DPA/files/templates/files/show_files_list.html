@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Files</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'files/style.css' %}">
+</head>
+<body id="bg" style="background-image: url('{% static "files/images/background.jpg" %}');">
+
+<div class="container">
+  <h1>File List</h1>
+
+  <h2>Documents</h2>
+  <ul>
+    {% for title, links in documents %}
+    <li>
+      <img src="{{ links.2 }}" alt="icon">
+      <span>{{ title }}</span>
+      <div class="link-actions">
+        <a href="{{ links.0 }}" target="_blank">Open</a>
+        <a href="{{ links.1 }}" target="_blank">Download</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Videos</h2>
+  <ul>
+    {% for title, links in videos %}
+    <li>
+      <img src="{{ links.2 }}" alt="icon">
+      <span>{{ title }}</span>
+      <div class="link-actions">
+        <a href="{{ links.0 }}" target="_blank">Open</a>
+        <a href="{{ links.1 }}" target="_blank">Download</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Images</h2>
+  <ul>
+    {% for title, links in images %}
+    <li>
+      <img src="{{ links.2 }}" alt="icon">
+      <span>{{ title }}</span>
+      <div class="link-actions">
+        <a href="{{ links.0 }}" target="_blank">Open</a>
+        <a href="{{ links.1 }}" target="_blank">Download</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Other</h2>
+  <ul>
+    {% for title, links in other %}
+    <li>
+      <img src="{{ links.2 }}" alt="icon">
+      <span>{{ title }}</span>
+      <div class="link-actions">
+        <a href="{{ links.0 }}" target="_blank">Open</a>
+        <a href="{{ links.1 }}" target="_blank">Download</a>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+</body>
+</html>
