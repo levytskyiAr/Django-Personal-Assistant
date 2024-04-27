@@ -31,3 +31,4 @@ class LoginForm(AuthenticationForm):
             if not user or not user.is_active:
                 raise forms.ValidationError("Incorrect username or password")
         return self.cleaned_data
+    
