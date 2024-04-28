@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="15432dec-f0dd-45bf-9d96-0dcbda46bb0a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/DPA/files/async_google_drive/keys.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/DPA/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/DPA/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/client_secrets.json" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/async_google_drive/client_secrets.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/google_drive_connect/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/google_drive_connect/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/google_drive_connect/video_for_download/Photoshop-Export-Layers-to-Files-Fast-2.7.1.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/show_file.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/show_files_list.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/start_page.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/some_file" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Roll1ngo&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/levytskyiAr/Django-Personal-Assistant.git&quot;,
+    &quot;accountId&quot;: &quot;9981611c-938f-4d43-a050-7923fcfc0262&quot;
+  }
+}</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2fg0CEGZN6zpnaeeDpaGsF5pUxr" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.example (1).executor": "Run",
+    "Python.example.executor": "Run",
+    "Python.examples_get_and_post_requests_in_google_drive.executor": "Run",
+    "Python.gauth.executor": "Run",
+    "Python.oauth2.executor": "Run",
+    "Python.tests.executor": "Run",
+    "Python.views.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "cloud",
+    "last_opened_file_path": "C:/Users/RollPy/Documents/GitHub/Django-Personal-Assistant/DPA/files/google_drive_connect/video_for_download"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\google_drive_connect\video_for_download" />
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA" />
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files" />
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\static\files\images" />
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\video_for_download" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\templates\files" />
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files" />
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\google_drive_connect\async_google_drive" />
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\google_drive_connect" />
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.examples_get_and_post_requests_in_google_drive">
+    <configuration name="example (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Django-Personal-Assistant" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPA/files/async_google_drive" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPA/files/async_google_drive/example.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="example" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Django-Personal-Assistant" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPA/files" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\google_drive_connect\async_google_drive\example.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="examples_get_and_post_requests_in_google_drive" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Django-Personal-Assistant" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPA/files/google_drive_connect" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPA/files/google_drive_connect/examples_get_and_post_requests_in_google_drive.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="oauth2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Django-Personal-Assistant" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPA/files" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\google_drive_connect\async_google_drive\oauth2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="views" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Django-Personal-Assistant" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPA/files" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPA/files/views.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.examples_get_and_post_requests_in_google_drive" />
+        <item itemvalue="Python.example (1)" />
+        <item itemvalue="Python.example" />
+        <item itemvalue="Python.oauth2" />
+        <item itemvalue="Python.views" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="15432dec-f0dd-45bf-9d96-0dcbda46bb0a" name="Changes" comment="" />
+      <created>1714207284978</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714207284978</updated>
+    </task>
+    <servers />
+  </component>
+</project>
