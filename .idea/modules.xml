@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Django-Personal-Assistant.iml" filepath="$PROJECT_DIR$/.idea/Django-Personal-Assistant.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../HW10/.idea/HW10.iml" filepath="$PROJECT_DIR$/../HW10/.idea/HW10.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Team_Project.iml" filepath="$PROJECT_DIR$/.idea/Team_Project.iml" />
     </modules>
   </component>
 </project>
