@@ -43,7 +43,7 @@
     <h1>Edit Note</h1>
 
     <!-- Форма редагування нотатки -->
-    <form method="post" action="{% url 'app_notes:edit_note' note_id=note_id %}">
+    <form method="post" action="{% url 'notes:edit_note' note_id=note_id %}">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Save Changes</button>
