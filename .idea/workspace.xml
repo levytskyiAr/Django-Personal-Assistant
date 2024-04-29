@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="8e490773-6d45-4eb5-9fd1-c4618dfa9ae9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/contacts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/contacts/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPA/contacts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/contacts/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/contacts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/contacts/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/credentials.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
