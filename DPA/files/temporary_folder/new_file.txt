@@ -1,0 +1,1 @@
+This is some content for the new file.
