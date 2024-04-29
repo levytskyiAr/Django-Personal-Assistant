@@ -38,10 +38,6 @@ body {
     font-size: 1rem;
 }
 
-
-
-/* styles.css */
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -49,7 +45,7 @@ body {
     padding: 0;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: top;
     height: 100vh;
 }
 
@@ -86,3 +82,16 @@ body {
     border-radius: 4px;
 }
 
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.form-group button:hover {
+    background-color: #0056b3;
+}
