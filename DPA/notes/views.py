@@ -31,10 +31,10 @@ def main(request):
     # Retrieve the page object based on the page number
     page_obj = paginator.get_page(page_number)
     #
-    # index_url = reverse('app_notes:index')  # 'app_notes' - ім'я вашої додаткової аплікації
+    # index_url = reverse('notes:index')  # 'notes' - ім'я вашої додаткової аплікації
 
     # Render the index.html template with the page object as context
-    return render(request, "app_notes/index.html", {"page_obj": page_obj})
+    return render(request, "notes/index.html", {"page_obj": page_obj})
 
 
 @login_required
@@ -61,18 +61,18 @@ def tag(request):
                 tl.save()
                 messages.success(request, f"Tag {name} created")
 
-            return redirect(to="/app_notes/tag/")
+            return redirect(to="/notes/tag/")
 
         except ValueError as err:
             messages.error(request, err)
-            return render(request, "app_notes/tag.html", {"error": err})
+            return render(request, "notes/tag.html", {"error": err})
 
         except IntegrityError:
             err = "Tag already exists, please enter another tag..."
             messages.error(request, err)
-            return render(request, "app_notes/tag.html", {"error": err})
+            return render(request, "notes/tag.html", {"error": err})
 
-    return render(request, "app_notes/tag.html", {})
+    return render(request, "notes/tag.html", {})
 
 
 @login_required
@@ -113,13 +113,13 @@ def note(request):
             # Display a success message
             messages.success(request, f"Note {name} created")
 
-        return redirect(to="/app_notes/note/")
+        return redirect(to="/notes/note/")
 
     # Get all tags for the current user
     tags = Tag.objects.filter(author=request.user).all()
 
     # Render the note form with the tags
-    return render(request, "app_notes/note.html", {"tags": tags})
+    return render(request, "notes/note.html", {"tags": tags})
 
 
 @login_required
@@ -143,7 +143,7 @@ def detail(request, note_id):
     note.tag_list = ", ".join([str(name) for name in note.tags.all()])
 
     # Render the detail.html template with the note object as context
-    return render(request, "app_notes/detail.html", {"note": note})
+    return render(request, "notes/detail.html", {"note": note})
 
 
 @login_required
@@ -159,7 +159,7 @@ def set_done(request, note_id):
         HttpResponseRedirect: A redirect response to the note app home page.
     """
     Note.objects.filter(pk=note_id).update(done=True)
-    return redirect(to="/app_notes/")
+    return redirect(to="/notes/")
 
 
 @login_required
@@ -176,7 +176,7 @@ def delete_note(request, note_id):
     """
     note = Note.objects.get(pk=note_id)  # Get the note with the given note_id
     note.delete()  # Delete the note
-    return redirect(to="/app_notes/")  # Redirect to the note app homepage
+    return redirect(to="/notes/")  # Redirect to the note app homepage
 
 
 @login_required
@@ -200,7 +200,7 @@ def search_note(request):
         notes = []  # Set notes to an empty list if the request method is not GET
 
     return render(
-        request, "app_notes/search_note.html", {"notes": notes}
+        request, "notes/search_note.html", {"notes": notes}
     )  # Render the template with the notes as
     # context
 
@@ -216,7 +216,7 @@ def edit_note(request, note_id):
                 return redirect('app_notes:detail', note_id=note_id)
         else:
             form = NoteForm(instance=note)
-        return render(request, 'app_notes/edit_note.html', {'form': form, 'note_id': note_id})
+        return render(request, 'notes/edit_note.html', {'form': form, 'note_id': note_id})
     except Note.DoesNotExist:
         messages.error(request, "Note does not exist or you don't have permission to edit it")
-        return redirect('app_notes:detail', note_id=note_id)
+        return redirect('notes:detail', note_id=note_id)
