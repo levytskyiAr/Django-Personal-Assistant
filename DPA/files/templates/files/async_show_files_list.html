@@ -11,11 +11,9 @@
 <div class="container">
   <h1>File List</h1>
   <h2>Upload a file</h2>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        <p>{{form.as_p}}</p>
-        <button type="submit">Upload</button>
-    </form>
+  <a href="{% url 'files:upload_file' %}" class="btn btn-light me-2">Upload</a>
+  <a href="{% url 'files:authorize' %}" class="btn btn-light me-2">Authorize</a>
+
 
   <h2>Documents</h2>
   <ul>

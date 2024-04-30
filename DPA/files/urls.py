@@ -7,6 +7,8 @@ urlpatterns = [
     path('listfiles/', views.get_filelist_from_drive, name='listfiles'),
     path('open/<str:file_id>/', views.open_file, name='open_file'),
     path('download/<str:file_id>/', views.download_file, name='download_file'),
-    path('upload/', views.FileUploadView.as_view, name='upload_file'),
+    path('upload/', views.upload, name='upload_file'),
+    path('authorize/', views.authorize, name='authorize')
+
 ]
 

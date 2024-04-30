@@ -1,9 +1,12 @@
+import asyncio
 import os
+from time import sleep
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import FileResponse, HttpResponse
 from aiogoogle import Aiogoogle
 from django.views import View
+from googleapiclient.http import MediaFileUpload
 
 from .async_google_drive.helpers import user_creds, client_creds
 import aiogoogle
@@ -66,54 +69,37 @@ async def download_file(request, file_id):
 
 
 async def create_file_with_correct_name(file_id):
-    clean_temp_folder()
     async with Aiogoogle(user_creds=user_creds, client_creds=client_creds) as aiogoogle:
         drive_v3 = await aiogoogle.discover("drive", "v3")
         res = await aiogoogle.as_user(drive_v3.files.get(fileId=file_id))
-        path = f'files/temporary_folder/{res['name']}'
+        path = f'media/uploads/temp_upload/{res['name']}'
         fd = os.open(path, os.O_CREAT, 0o666)
         os.close(fd)
         return path
 
 
-# async def upload_file(path):
-#     async with Aiogoogle(user_creds=user_creds) as aiogoogle:
-#         drive_v3 = await aiogoogle.discover('drive', 'v3')
-#         await aiogoogle.as_user(
-#             drive_v3.files.create(upload_file=path)
-#         )
-
-
-class FileUploadView(View):
-    async def post(self, request):
-        file = request.FILES['file']
-        filename = os.path.join('uploads', file.name)
-        with open(filename, 'wb+') as destination:
-            for chunk in file.chunks():
-                destination.write(chunk)
-
-        # Authenticate with Google Drive using aiogoogle
-        # Replace with your Client ID and Client Secret
-        service = await aiogoogle.AuthenticatedGoogle(client_id='YOUR_CLIENT_ID', client_secret='YOUR_CLIENT_SECRET')
-
-        # Upload the file to Google Drive
-        # Replace with your desired folder ID and file name
-        folder_id = 'YOUR_FOLDER_ID'
-        file_name = 'uploaded_file.txt'
-        await service.drive.files.create(
-            name=file_name,
-            parents=[folder_id],
-            media_body=aiogoogle.MediaFileUpload(filename, mimetype='text/plain')
-        )
-
-        return HttpResponse('File uploaded successfully')
-
-    def get(self, request):
-        return render(request, 'upload_form.html')
-
-
 def clean_temp_folder():
-    folder_path = 'files/temporary_folder'
+    folder_path = 'media/upload/temp_download'
     for filename in os.listdir(folder_path):
         file_path = os.path.join(folder_path, filename)
         os.unlink(file_path)
+
+
+def authorize(request):
+    uri = aiogoogle.oauth2.authorization_url(
+        client_creds={
+            'client_id': '222206179817-7oevt5trglkssvufbv58f7kf1ko4qstr.apps.googleusercontent.com',
+            'client_secret': '"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"',
+            'scopes': [
+                'https://www.googleapis.com/auth/drive.file',
+                'email',
+                'https://www.googleapis.com/auth/drive.install'
+            ],
+            'redirect_uri': 'http://localhost:5000/callback/aiogoogle'
+        },
+    )
+    return redirect(uri)
+
+
+def upload():
+    pass

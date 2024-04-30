@@ -75,15 +75,10 @@ WSGI_APPLICATION = 'DPA.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-# docker run -d --name dpa-postgres-container -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=DPA -e POSTGRES_DB=DPA -p 5432:5432 postgres:latest
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'DPA',
-        'USER': 'postgres',
-        'PASSWORD': 'DPA',
-        'HOST': '127.0.0.1',
-        'PORT': '5432'
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -124,7 +119,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media', 'uploads', 'temp_uploads')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

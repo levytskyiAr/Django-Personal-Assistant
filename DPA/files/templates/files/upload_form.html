@@ -1,3 +1,4 @@
+<!-- myapp/templates/upload_form.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +9,7 @@
     <h1>Upload a file</h1>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <input type="file" name="file">
+        {{ form.as_p }}
         <button type="submit">Upload</button>
     </form>
 </body>
