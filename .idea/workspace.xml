@@ -5,11 +5,78 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e490773-6d45-4eb5-9fd1-c4618dfa9ae9" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16394" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16397" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16402" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16405" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16408" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16411" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16416" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16419" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16422" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16425" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16430" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16433" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16436" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16439" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16442" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16444" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16451" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16452" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16453" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16465" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16466" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16467" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16468" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16480" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16481" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16482" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16494" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16495" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16496" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16501" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16502" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16503" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16515" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16520" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16530" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16531" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16533" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16546" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16548" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16549" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/contacts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/contacts/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/contacts/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/contacts/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/contacts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/contacts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPA/credentials.json" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/credentials.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16388" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16388" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16389" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16389" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16392" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16392" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16393" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16393" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16396" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16396" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16400" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16400" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16404" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16404" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16410" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16410" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16414" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16414" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16418" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16418" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16424" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16424" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16428" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16428" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16432" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16432" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16438" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16438" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16516" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16516" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16521" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16521" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16525" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16525" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16526" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16526" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16529" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16529" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16540" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16540" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16541" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16541" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16544" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16544" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/base/5/16545" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/base/5/16545" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/global/pg_control" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/global/pg_control" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/pg_wal/000000010000000000000001" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/pg_wal/000000010000000000000001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/postgres-data/pg_xact/0000" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/postgres-data/pg_xact/0000" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/users/templates/users/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/users/templates/users/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/users/templates/users/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/users/templates/users/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/users/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/users/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,16 +108,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Python/GoIT/Module 2/HW10&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "D:/Python/GoIT/Module 2/Team_Project/DPA/users"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Python\GoIT\Module 2\Team_Project\DPA\users" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Python\GoIT\Module 2\Team_Project\DPA\users\templates\users" />
       <recent name="D:\Python\GoIT\Module 2\Team_Project\DPA\users\templates" />
