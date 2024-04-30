@@ -1,2 +1,8 @@
+import uuid
 
-test = "test"
+# Generate a UUID
+unique_id = uuid.uuid4()
+
+print(unique_id)
+
+

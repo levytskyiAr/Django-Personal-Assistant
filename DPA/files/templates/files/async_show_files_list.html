@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,14 +6,20 @@
   <title>Files</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'files/style.css' %}">
+
 </head>
 <body id="bg" style="background-image: url('{% static 'files/images/background.jpg' %}');">
 
 <div class="container">
   <h1>File List</h1>
   <h2>Upload a file</h2>
-  <a href="{% url 'files:upload_file' %}" class="btn btn-light me-2">Upload</a>
-  <a href="{% url 'files:authorize' %}" class="btn btn-light me-2">Authorize</a>
+  <div class="col-md-4 d-flex align-items-center justify-content-end">
+	<a href="" class="btn btn-light me-2">Main</a>
+	<p><a href="/files/listfiles" class="btn btn-light me-2">Files</a></p>
+	<p><a href="{% url 'files:upload_file' %}" class="btn btn-light me-2">Upload</a></p>
+  </div>
+
+  <!--  <a href="{% url 'files:authorize' %}" class="btn btn-light me-2">Authorize</a>-->
 
 
   <h2>Documents</h2>
