@@ -311,6 +311,17 @@ rsa = ">=3.1.4"
 six = ">=1.6.1"
 
 [[package]]
+name = "phonenumbers"
+version = "8.13.35"
+description = "Python version of Google's common library for parsing, formatting, storing and validating international phone numbers."
+optional = false
+python-versions = "*"
+files = [
+    {file = "phonenumbers-8.13.35-py2.py3-none-any.whl", hash = "sha256:58286a8e617bd75f541e04313b28c36398be6d4443a778c85e9617a93c391310"},
+    {file = "phonenumbers-8.13.35.tar.gz", hash = "sha256:64f061a967dcdae11e1c59f3688649e697b897110a33bb74d5a69c3e35321245"},
+]
+
+[[package]]
 name = "proto-plus"
 version = "1.23.0"
 description = "Beautiful, Pythonic protocol buffers."
@@ -587,4 +598,4 @@ zstd = ["zstandard (>=0.18.0)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "416bef4c8f37354f69844534639fe68aec37db1c1715712b624610a3267f7e93"
+content-hash = "6df48f866de27ad4b61b72aa844dc9c6ee057929c7caf4d43c6b8c482facb872"

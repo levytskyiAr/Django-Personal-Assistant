@@ -19,6 +19,8 @@ class ContactForm(forms.ModelForm):
     phone = forms.CharField(label='Phone', widget=forms.TextInput(attrs={'placeholder': '+38099-999-99-99'}), validators=[validate_phone_number])
     birthday = forms.DateField(label='Birthday', widget=DateInput(attrs={'placeholder': 'yyyy-mm-dd'}))
 
-    class Meta:
-        model = Contact
-        fields = ['first_name', 'last_name', 'email', 'phone', 'birthday']
+
+def validate_phone_number(value):
+    pattern = r'^\+380\d{2}-\d{3}-\d{2}-\d{2}$'
+    if not re.match(pattern, value):
+        raise ValidationError('Invalid phone number format. Use format: +38099-999-99-99')

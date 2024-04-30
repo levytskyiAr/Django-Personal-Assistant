@@ -52,3 +52,4 @@ class LoginForm(AuthenticationForm):
 class CustomLoginView(LoginView):
     template_name = 'users/login.html'
     success_url = 'profile'
+
