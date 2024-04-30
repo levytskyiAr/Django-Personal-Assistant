@@ -1,0 +1,81 @@
+1-35: 50x Rough Sharpening Stone (50x Rough Stone)
+
+Train Rough Grinding Stone and learn Journeyman Blacksmithing after 50
+35-50: 17x Rough Grinding Stone (34x Rough Stone)
+
+learn Journeyman Blacksmithing
+50-75: 48x Rough Grinding Stone (96x Rough Stone) (don't sell them, they are needed later)       /
+
+Train Coarse Grinding Stone
+75-95 70x Coarse Grinding Stone (140x Coarse Stone) (don't sell them, they are needed later)
+
+Train Runed Copper Belt
+95-100 5x Runed Copper Belt (50x Copper Bar + 1x Blacksmith Hammer)   
+
+Train Silver Rod
+100-105 5x Silver Rod (5x Silver Bar, 10x Rough Grinding Stone )
+
+Train Silver Skeleton Key
+105-118 35x Silver Skeleton Key (35x Silver Bar, 35x Rough Grinding Stone )
+
+Train Rough Bronze Leggings
+118-120 2x Rough Bronze Leggings (12x Bronze Bar)                                               /
+
+Train Patterned Bronze Bracers
+120-125 5x Patterned Bronze Bracers (25x Bronze Bar, 10x Coarse Grinding Stone)   
+
+Train Heavy Grinding Stone
+125-146 65x Heavy Grinding Stone (195x Heavy Stone)
+
+Learn Blacksmithing Expert
+Train Patterned Bronze Bracers
+146-157 14x Patterned Bronze Bracers (70x Bronze Bar, 28x Coarse Grinding Stone)                 /
+
+Train Silvered Bronze Boots
+157-169 13x Silvered Bronze Boots (78x Bronze Bar, 13x Silver Bar, 26x Coarse Grinding Stone)
+
+Learn Green Iron Bracers
+165-200 36x Green Iron Bracers (216x Iron Bar, 36x Green Dye)      /
+    або 36x Iron Counterweight (144x Iron Bar, 72x Coarse Grinding Stone, 36x Lesser Moonstone + Plans: Iron Counterweight)      /    +64 Coarse Grinding Stone + 36x Lesser Moonstone + Plans: Iron Counterweight
+
+Learn Solid Sharpening Stone
+200-210 35x Solid Sharpening Stone (35x Solid Stone)
+
+Learn Golden Scale Bracers
+210-215 6x Golden Scale Bracers (30x Steel Bar, 12x Heavy Grinding Stone)
+
+Learn Heavy Mithril Gauntlet
+215-225 10x Heavy Mithril Gauntlet (60x Mithril Bar, 40x Mageweave Cloth)
+
+____________________________________________________________________
+Auc:                                     MinMax      На цей заказ
+
+180x Rough Stone                         0.2-0.4g      0.36g
+140x Coarse Stone                        0.61-1.19g    0.7g         
+50x Copper Bar                                         3,5g
+53x Silver Bar                           0.3-0.5g      1.59g   
+185x Bronze Bar                          4-8.4g        22.2g
+195x Heavy Stone                         1.8-30g       14.63g         
+216x Iron Bar                            21-24g        19.44g           
+35x Solid Stone                                        0.53g
+30x Steel Bar                                          4.5g                       
+60x Mithril Bar                                        7.8g                 
+40x Mageweave Cloth                                    6.8g                   
+
+вендор:
+1x Blacksmith Hammer                                   0.01g                             
+36x Green Dye                                          0.36g                      
+
+Total:                                   68,48-210g    83g              
+____________________________________________________________________
+
+
+
+
+Leveling Blacksmithing from 225-300
+Steel Bar 140
+Thorium Bar 670
+Star Ruby 30
+Mithril Bar 100
+Dense Stone 10
+Aquamarine 5

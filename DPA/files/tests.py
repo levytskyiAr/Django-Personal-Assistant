@@ -1,2 +1,8 @@
+from models import UserFolderGoogleDrive
+from django.contrib.auth.models import User
 
-test = "test"
+users = User.objects.all()
+for user in users:
+    print(user.id, user.email)
+
+
