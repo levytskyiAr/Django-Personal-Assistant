@@ -5,6 +5,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from django.views import View
 from .forms import RegisterForm
+from django.contrib.auth.views import LoginView
 
 
 def index(request):
@@ -46,4 +47,8 @@ class LoginForm(AuthenticationForm):
             if not user or not user.is_active:
                 raise forms.ValidationError("Incorrect username or password")
         return self.cleaned_data
-    
+
+
+class CustomLoginView(LoginView):
+    template_name = 'users/login.html'
+    success_url = 'profile'
