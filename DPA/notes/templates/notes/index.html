@@ -1,0 +1,69 @@
+{% extends "app_assistant/base.html" %}
+
+{% block header %}
+    {% include 'includes/headerNote.html' %}
+{% endblock %}
+{% load static %}
+{% block content %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'notes/css/styles.css' %}">
+
+        <nav class="mb-5 border-b-4">
+		    <div class="card" style="border-color: white;">
+			<div class="card-body">
+                <a href="/notes/note/" class="btn btn-primary">Add Note</a>
+                <a href="/notes/tag/" class="btn btn-primary">Add Tag</a>
+			</div>
+			</div>
+        </nav>
+
+        <h3 class="font-medium leading-tight text-lg text-gray-300 mb-1" style="text-align: center;">Search:</h3>
+
+        <form action="{% url 'notes:search_note' %}" method="get" class="flex mb-8">
+            <input class="w-full rounded-lg border-lip" name="q" type="text" placeholder="Enter the name of the note...">
+            <button type="submit" class="text-white font-bold py-2 px-4 rounded-l">Search</button>
+        </form>
+
+        <table class="min-w-full text-center border shadow">
+            <thead class="bg-lip text-gray-300 border-b">
+                <tr>
+                    <th class="text-sm font-medium text-gray-300 px-6 py-4" scope="col">NAME</th>
+                    <th class="text-sm font-medium text-gray-300 px-6 py-4" scope="col">STATUS</th>
+                    <th class="text-sm font-medium text-gray-300 px-6 py-4" scope="col">DELETE</th>
+                </tr>
+            </thead>
+            <tbody class="bg-gray-50 text-centre">
+                {% for note in page_obj %}
+                    <tr class="border-b shadow hover:bg-indigo-100 text-md font-medium">
+                        {% if not note.done %}
+                            <td><a href="/notes/detail/{{ note.id }}" class="text-gray-900">{{ note.name }}</a></td>
+                            <td><a href="/notes/done/{{ note.id }}" class="text-green-600">Mark as Done</a></td>
+                            <td><a href="/notes/delete/{{ note.id }}" class="text-red-600">Delete</a></td>
+                        {% else %}
+                            <td><s>{{ note.name }}</s></td>
+                            <td><a href="/notes/done/{{ note.id }}" class="text-green-600">Mark as Done</a></td>
+                            <td><a href="/notes/delete/{{ note.id }}" class="text-red-600">Delete</a></td>
+                        {% endif %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="pagination text-gray-300 mt-3 text-center">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+{% endblock %}
