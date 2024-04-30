@@ -14,17 +14,21 @@ from .models import UserFolderGoogleDrive
 
 def get_filelist_from_drive(request):
     user_id = request.user.id
-    print(user_id)
-    try:
-        user = User.objects.get(id=user_id)
-        folder = UserFolderGoogleDrive.objects.get(user=user)
-        print(folder)
-    except User.DoesNotExist:
-        print(f"User with id {user_id} does not exist.")
-    except UserFolderGoogleDrive.DoesNotExist:
-        print(f"Folder for user with id {user_id} does not exist.")
+    folders = UserFolderGoogleDrive.objects.get(user=user_id)
+    print(folders.folder_drive_id)
+    # for folder in folders:
+    #     print(folder.folder_drive_id, folder.user_id)
+    # print(user_id)
+    # try:
+    #     user = User.objects.get(id=user_id)
+    #     folder = UserFolderGoogleDrive.objects.get(user=user)
+    #     print(folder)
+    # except User.DoesNotExist:
+    #     print(f"User with id {user_id} does not exist.")
+    # except UserFolderGoogleDrive.DoesNotExist:
+    #     print(f"Folder for user with id {user_id} does not exist.")
 
-    documents, videos, images, other = async_to_sync(get_file_list_from_drive)("1h8thDHjpZ6JixvS-Ir-xIIo1b_IL8kYq")
+    documents, videos, images, other = async_to_sync(get_file_list_from_drive)(folders.folder_drive_id)
     return render(request, 'files/async_show_files_list.html', {
         'documents': documents,
         'videos': videos,

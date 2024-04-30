@@ -1,8 +1,8 @@
-import uuid
+from models import UserFolderGoogleDrive
+from django.contrib.auth.models import User
 
-# Generate a UUID
-unique_id = uuid.uuid4()
-
-print(unique_id)
+users = User.objects.all()
+for user in users:
+    print(user.id, user.email)
 
 
