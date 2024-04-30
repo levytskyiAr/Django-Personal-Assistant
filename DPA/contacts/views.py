@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from .models import Contact
 from .forms import ContactForm
+from django.views.generic import ListView
 
 
 def contact_list(request):
@@ -28,3 +29,12 @@ def create_contact(request):
     else:
         form = ContactForm()
     return render(request, 'contacts/create_contact.html', {'form': form})
+
+
+class ContactListView(ListView):
+    model = Contact
+    template_name = 'contacts/content.html'
+    context_object_name = 'contacts'
+
+    def get_queryset(self):
+        return Contact.objects.filter(user=self.request.user)

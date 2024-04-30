@@ -27,6 +27,26 @@
                     <a href="profile/add_new_contact/" class="btn btn-primary me-2">Add New Contact</a>
                 </div>
             </div>
+            <div class="container mt-3">
+                <div class="list-group">
+                    <h1 class="text-center">Contact List</h1>
+                    {% for contact in contacts %}
+                            <a href="#" class="list-group-item list-group-item-action">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1"><b>{{ contact.first_name }} {{ contact.last_name }}</b></h5>
+                                    <div>
+                                        <button type="button" class="btn btn-primary float-right">Edit</button>
+                                        <button type="button" class="btn btn-danger float-right">Remove</button>
+                                    </div>
+                                </div>
+                                <p class="mb-1">Phone: {{ contact.phone }}</p>
+                                <p class="mb-1">Email: {{ contact.email }}</p>
+                                <p class="mb-1">Birthday: {{ contact.birthday }}</p>
+    <!--                        <small class="text-muted">small font</small>-->
+                            </a>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-B6sLOLr/6+oqM5fCMtG5qH0cSAO6qDl3jI4gW2G14NC7Glg7mGFPp4XuhFffTJf3" crossorigin="anonymous"></script>
     </body>
