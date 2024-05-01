@@ -47,26 +47,19 @@
     <h2 class="text-center">Create New Contact</h2>
     <form method="post" class="form-container">
         {% csrf_token %}
+        {% for field in form %}
         <div class="form-group">
-            <label for="id_first_name">First name:</label>
-            {{ form.first_name }}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+            <div class="text-danger">
+                {% for error in field.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
-        <div class="form-group">
-            <label for="id_last_name">Last name:</label>
-            {{ form.last_name }}
-        </div>
-        <div class="form-group">
-            <label for="id_email">Email:</label>
-            {{ form.email }}
-        </div>
-        <div class="form-group">
-            <label for="id_phone">Phone:</label>
-            {{ form.phone }}
-        </div>
-        <div class="form-group">
-            <label for="id_birthday">Birthday:</label>
-            {{ form.birthday }}
-        </div>
+        {% endfor %}
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 </div>
