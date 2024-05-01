@@ -9,4 +9,4 @@ class UploadedFile(models.Model):
 # Create your models here.
 class UserFolderGoogleDrive(models.Model):
     folder_drive_id = models.CharField(max_length=255, unique=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, unique=True, on_delete=models.CASCADE)
