@@ -27,7 +27,7 @@ def create_contact(request):
             user = request.user
             # Створення нового контакту з встановленням ідентифікатора користувача
             Contact.objects.create(first_name=first_name, last_name=last_name, email=email, phone=phone, birthday=birthday, user=user)
-            return redirect('contacts:profile')
+            return redirect('contacts:content')
     else:
         form = ContactForm()
     return render(request, 'contacts/create_contact.html', {'form': form})
