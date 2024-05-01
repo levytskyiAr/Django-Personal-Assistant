@@ -1,4 +1,4 @@
-{% extends "app_assistant/base.html" %}
+{% extends "users/base.html" %}
 
 {% block header %}
 {% include 'includes/headerNote.html' %}
@@ -12,7 +12,7 @@
             <div class="card-body">
                 <a href="{% url 'notes:edit_note' note_id=note.id %}" class="btn btn-primary">
                     Edit Note</a>
-                <a href="/app_notes/" class="btn btn-primary">
+                <a href="/notes/" class="btn btn-primary">
                     <i class="fa fa-angle-double-left" aria-hidden="true"></i> Back to Notes</a>
             </div>
         </div>

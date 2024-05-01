@@ -213,7 +213,7 @@ def edit_note(request, note_id):
             if form.is_valid():
                 form.save()
                 messages.success(request, f"Note '{note.name}' updated successfully")
-                return redirect('app_notes:detail', note_id=note_id)
+                return redirect('notes:detail', note_id=note_id)
         else:
             form = NoteForm(instance=note)
         return render(request, 'notes/edit_note.html', {'form': form, 'note_id': note_id})
