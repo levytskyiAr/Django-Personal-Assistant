@@ -44,7 +44,7 @@
             </div>
 
             <div class="container mt-5">
-    <h2 class="text-center">Create New Contact</h2>
+    <h2 class="text-center">Edit Contact</h2>
     <form method="post" class="form-container">
         {% csrf_token %}
         {% for field in form %}
@@ -60,7 +60,8 @@
             {% endif %}
         </div>
         {% endfor %}
-        <button type="submit" class="btn btn-primary">Save</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{% url 'contacts:profile' %}" class="btn btn-secondary">Cancel</a>
     </form>
 </div>
 
