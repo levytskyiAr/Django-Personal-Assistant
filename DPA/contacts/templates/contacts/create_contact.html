@@ -3,23 +3,23 @@
     <head>
         <style>
 .form-container {
-    max-width: 400px; /* Задаємо максимальну ширину для форми */
-    margin: auto; /* Центруємо форму по горизонталі */
+    max-width: 400px;
+    margin: auto;
 }
 
 .form-group {
-    margin-bottom: 10px; /* Відступ між рядками форми */
+    margin-bottom: 10px;
 }
 
 .form-group label {
     display: inline-block;
-    width: 120px; /* Ширина мітки */
+    width: 120px;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    width: calc(100% - 120px); /* Ширина поля вводу, враховуючи ширину мітки */
+    width: calc(100% - 120px);
 }
         </style>
         <meta charset="UTF-8">
@@ -47,26 +47,19 @@
     <h2 class="text-center">Create New Contact</h2>
     <form method="post" class="form-container">
         {% csrf_token %}
+        {% for field in form %}
         <div class="form-group">
-            <label for="id_first_name">First name:</label>
-            {{ form.first_name }}
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+            <div class="text-danger">
+                {% for error in field.errors %}
+                {{ error }}
+                {% endfor %}
+            </div>
+            {% endif %}
         </div>
-        <div class="form-group">
-            <label for="id_last_name">Last name:</label>
-            {{ form.last_name }}
-        </div>
-        <div class="form-group">
-            <label for="id_email">Email:</label>
-            {{ form.email }}
-        </div>
-        <div class="form-group">
-            <label for="id_phone">Phone:</label>
-            {{ form.phone }}
-        </div>
-        <div class="form-group">
-            <label for="id_birthday">Birthday:</label>
-            {{ form.birthday }}
-        </div>
+        {% endfor %}
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 </div>

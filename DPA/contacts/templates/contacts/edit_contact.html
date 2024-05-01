@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <style>
+.form-container {
+    max-width: 400px;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: inline-block;
+    width: 120px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: calc(100% - 120px);
+}
+        </style>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -22,11 +43,28 @@
                 </div>
             </div>
 
-            <div class="row mt-3">
-                <div class="col-md-12">
-                    <a href="add_new_contact" class="btn btn-primary me-2">Add New Contact</a>
-                </div>
+            <div class="container mt-5">
+    <h2 class="text-center">Edit Contact</h2>
+    <form method="post" class="form-container">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+            {{ field }}
+            {% if field.errors %}
+            <div class="text-danger">
+                {% for error in field.errors %}
+                {{ error }}
+                {% endfor %}
             </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Update</button>
+        <a href="{% url 'contacts:profile' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-B6sLOLr/6+oqM5fCMtG5qH0cSAO6qDl3jI4gW2G14NC7Glg7mGFPp4XuhFffTJf3" crossorigin="anonymous"></script>
     </body>
