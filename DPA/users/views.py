@@ -11,6 +11,8 @@ from django.contrib.auth.views import LoginView
 def index(request):
     return render(request, 'users/index.html')
 
+def profile(request):
+    return render(request, 'users/profile.html')
 
 class RegisterView(View):
     template_name = 'users/register.html'
@@ -38,18 +40,42 @@ class LoginForm(AuthenticationForm):
     username = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Username'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
 
+    error_messages = {
+        'invalid_login': "Invalid username or password. Please try again.",
+        'inactive': "This account is inactive.",
+    }
+
     def clean(self):
         username = self.cleaned_data.get('username')
         password = self.cleaned_data.get('password')
 
         if username and password:
-            user = authenticate(username=username, password=password)
-            if not user or not user.is_active:
-                raise forms.ValidationError("Incorrect username or password")
+            self.user_cache = authenticate(username=username, password=password)
+            if self.user_cache is None:
+                raise forms.ValidationError(self.error_messages['invalid_login'], code='invalid_login')
+            elif not self.user_cache.is_active:
+                raise forms.ValidationError(self.error_messages['inactive'], code='inactive')
+
         return self.cleaned_data
 
 
 class CustomLoginView(LoginView):
     template_name = 'users/login.html'
-    success_url = 'profile'
+    form_class = LoginForm
+    success_url = 'profile/'
 
+
+def change_password(request):
+    template_name = 'users/change_password.html'
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)
+            messages.success(request, 'Your password has been successfully changed!')
+            return redirect('/accounts/profile/')
+        else:
+            messages.error(request, 'The old or new password is not valid.')
+    else:
+        form = PasswordChangeForm(request.user)
+    return render(request, template_name, {'form': form})
