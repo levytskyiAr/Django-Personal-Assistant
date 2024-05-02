@@ -4,7 +4,14 @@ client_creds:
   scopes:
     - https://www.googleapis.com/auth/drive.file
     - https://www.googleapis.com/auth/drive.install
-    - email # OpenID Connect
+    - "https://www.googleapis.com/auth/contacts",
+    - "https://www.googleapis.com/auth/contacts.readonly",
+    - "https://www.googleapis.com/auth/plus.login",
+    - "https://www.googleapis.com/auth/user.addresses.read",
+    - "https://www.googleapis.com/auth/user.birthday.read",
+    - "https://www.googleapis.com/auth/user.phonenumbers.read",
+    - "https://www.googleapis.com/auth/userinfo.profile"
+
 
 user_creds:
   email: barsujkoanatoliy@gmail.com  # Optional

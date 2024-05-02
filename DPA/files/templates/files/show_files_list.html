@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,66 +6,75 @@
   <title>Files</title>
   {% load static %}
   <link rel="stylesheet" href="{% static 'files/style.css' %}">
+
 </head>
-<body id="bg" style="background-image: url('{% static "files/images/background.jpg" %}');">
+<body id="bg" style="background-image: url('{% static 'files/images/background.jpg' %}');
+ background-size: cover; background-position: center;">
 
 <div class="container">
   <h1>File List</h1>
+  <h2>Upload a file</h2>
+  <div class="col-md-4 d-flex align-items-center justify-content-end">
+	<a href="{% url 'users:index' %}" class="btn btn-light me-2">Mainap</a>
+	<p><a href="/files/listfiles" class="btn btn-light me-2">Files</a></p>
+	<p><a href="{% url 'files:upload_file' %}" class="btn btn-light me-2">Upload</a></p>
+  </div>
 
   <h2>Documents</h2>
   <ul>
-    {% for title, links in documents %}
-    <li>
-      <img src="{{ links.2 }}" alt="icon">
-      <span>{{ title }}</span>
-      <div class="link-actions">
-        <a href="{{ links.0 }}" target="_blank">Open</a>
-        <a href="{{ links.1 }}" target="_blank">Download</a>
-      </div>
-    </li>
-    {% endfor %}
+	{% for title, id in documents.items %}
+	<li>
+	  <span>{{ title }}</span>
+	  <div class="link-actions">
+		<a href="{% url 'files:open_file' id %}" target="_blank">Open</a>
+		<a href="{% url 'files:download_file' id %}" target="_blank">Download</a>
+		<a href="{% url 'files:delete_file' id %}">Delete</a>
+	  </div>
+	</li>
+	{% endfor %}
   </ul>
 
   <h2>Videos</h2>
   <ul>
-    {% for title, links in videos %}
-    <li>
-      <img src="{{ links.2 }}" alt="icon">
-      <span>{{ title }}</span>
-      <div class="link-actions">
-        <a href="{{ links.0 }}" target="_blank">Open</a>
-        <a href="{{ links.1 }}" target="_blank">Download</a>
-      </div>
-    </li>
-    {% endfor %}
+	{% for title, id in videos.items %}
+	<li>
+	  <span>{{ title }}</span>
+	  <div class="link-actions">
+		<a href="{% url 'files:open_file' id %}" target="_blank">Open</a>
+		<a href="{% url 'files:download_file' id %}" target="_blank">Download</a>
+		<a href="{% url 'files:delete_file' id %}">Delete</a>
+	  </div>
+	</li>
+	{% endfor %}
   </ul>
 
   <h2>Images</h2>
   <ul>
-    {% for title, links in images %}
-    <li>
-      <img src="{{ links.2 }}" alt="icon">
-      <span>{{ title }}</span>
-      <div class="link-actions">
-        <a href="{{ links.0 }}" target="_blank">Open</a>
-        <a href="{{ links.1 }}" target="_blank">Download</a>
-      </div>
-    </li>
-    {% endfor %}
+	{% for title, id in images.items %}
+	<li>
+	  <span>{{ title }}</span>
+	  <div class="link-actions">
+		<a href="{% url 'files:open_file' id %}" target="_blank">Open</a>
+		<a href="{% url 'files:download_file' id %}" target="_blank">Download</a>
+		<a href="{% url 'files:delete_file' id %}">Delete</a>
+	  </div>
+	</li>
+	{% endfor %}
   </ul>
 
   <h2>Other</h2>
   <ul>
-    {% for title, links in other %}
-    <li>
-      <img src="{{ links.2 }}" alt="icon">
-      <span>{{ title }}</span>
-      <div class="link-actions">
-        <a href="{{ links.0 }}" target="_blank">Open</a>
-        <a href="{{ links.1 }}" target="_blank">Download</a>
-      </div>
-    </li>
-    {% endfor %}
+	{% for title, id in other.items %}
+	<li>
+	  <span>{{ title }}</span>
+	  <div class="link-actions">
+		<a href="{% url 'files:open_file' id %}" target="_blank">Open</a>
+		<a href="{% url 'files:download_file' id %}" target="_blank">Download</a>
+		<a href="{% url 'files:delete_file' id %}">Delete</a>
+
+	  </div>
+	</li>
+	{% endfor %}
   </ul>
 </div>
 

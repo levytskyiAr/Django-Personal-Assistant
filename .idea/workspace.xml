@@ -6,42 +6,66 @@
   <component name="ChangeListManager">
     <list default="true" id="440641a2-f8a6-4b96-b778-010754e9810e" name="Changes" comment="as">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/DPA/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/DPA/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/async_show_files_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/templates/files/async_show_files_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/upload_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/templates/files/upload_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_download/225-275_Blacksmithing_1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_download/225-275_Blacksmithing_1_LtzcnRp.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_download/2_1-300_кузнечка_1-2.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_download/background.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_download/background_Bh5HJe6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_download/background_JSifCcu.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_download/folder_9728770.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_download/preview_4893426.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_upload/35309.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_upload/Photoshop-Export-Layers-to-Files-Fast-2.7.1.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_upload/cat (1).jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_upload/cat.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_upload/text_file.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_upload/to folder.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_upload/to folder_2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/async_google_drive/keys.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/async_google_drive/keys.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/show_files_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/templates/files/show_files_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_upload/Шпаргалка для Python.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/media/uploads/temp_upload/Шпаргалка для Python.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Roll1ngo"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/levytskyiAr/Django-Personal-Assistant.git",
+    "accountId": "9981611c-938f-4d43-a050-7923fcfc0262"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2fuWAdJROhLzHYqIHCXe8lWFSwh" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "async__cloud"
   }
 }]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="440641a2-f8a6-4b96-b778-010754e9810e" name="Changes" comment="as" />
+      <created>1714651315944</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1714651315944</updated>
+    </task>
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

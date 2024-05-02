@@ -328,6 +328,33 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
+name = "django-background-tasks"
+version = "1.2.5"
+description = "Database backed asynchronous task queue"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-background-tasks-1.2.5.tar.gz", hash = "sha256:e1b19e8d495a276c9d64c5a1ff8b41132f75d2f58e45be71b78650dad59af9de"},
+]
+
+[package.dependencies]
+django-compat = ">=1.0.13"
+six = "*"
+
+[[package]]
+name = "django-compat"
+version = "1.0.15"
+description = "For- and backwards compatibility layer for Django 1.4, 1.7, 1.8, 1.9, 1.10, and 1.11"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django-compat-1.0.15.tar.gz", hash = "sha256:3ac9a3bedc56b9365d9eb241bc5157d0c193769bf995f9a78dc1bc24e7c2331b"},
+]
+
+[package.dependencies]
+six = ">=1.10.0"
+
+[[package]]
 name = "django-environ"
 version = "0.11.2"
 description = "A package that allows you to utilize 12factor inspired environment variables to configure your Django application."
@@ -342,6 +369,19 @@ files = [
 develop = ["coverage[toml] (>=5.0a4)", "furo (>=2021.8.17b43,<2021.9.dev0)", "pytest (>=4.6.11)", "sphinx (>=3.5.0)", "sphinx-notfound-page"]
 docs = ["furo (>=2021.8.17b43,<2021.9.dev0)", "sphinx (>=3.5.0)", "sphinx-notfound-page"]
 testing = ["coverage[toml] (>=5.0a4)", "pytest (>=4.6.11)"]
+
+[[package]]
+name = "django4-background-tasks"
+version = "1.2.9"
+description = "Database backed asynchronous task queue"
+optional = false
+python-versions = "*"
+files = [
+    {file = "django4-background-tasks-1.2.9.tar.gz", hash = "sha256:a27ddec8a0c850e5eedeef4767dacd067657aeb484c7e83593daf59c16433ce2"},
+]
+
+[package.dependencies]
+six = "*"
 
 [[package]]
 name = "frozenlist"
@@ -1057,4 +1097,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "118c4842e210a7bb8d2a152e1d1dae6e4792388ab74f6b8b216ab708af6cc757"
+content-hash = "5eb86360e59890c02588947615a418b36cbcdbe97bdc32622c0bd6eecd6a230d"
