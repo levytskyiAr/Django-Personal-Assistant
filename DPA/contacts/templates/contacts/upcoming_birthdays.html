@@ -26,18 +26,11 @@
                     <a href="/logout" class="btn btn-light me-2">Logout</a>
                 </div>
             </div>
-            <div class="row mt-3">
-                <div class="col-md-12">
-                    <a href="add_new_contact/" class="btn btn-primary me-2">Add New Contact</a>
-                    <a href="upcoming_birthdays/" class="btn btn-primary me-2">Upcoming Birthdays</a>
-                </div>
-            </div>
             <div class="container mt-3">
-                <div class="list-group">
-                    <h1 class="text-center">Contact List</h1>
-                    <div class="row mt-3 d-flex justify-content-end my-custom-margin"><input class="form-control" id="myInput" type="text" placeholder="Search.."></div>
-                    {% for contact in contacts %}
-                        <div class="card">
+                <div class="list-group container mt-3">
+                    <h1 class="text-center mb-5">Upcoming Birthdays</h1>
+                    {% for contact in birthdays %}
+                        <div class="card container">
                             <div class="d-flex justify-content-between">
                                 <div class="card-body">
                                     <div class="mb-4">
@@ -55,25 +48,12 @@
                                         <li><a class="dropdown-item" href="#" onclick="openDeleteModal()">Delete</a></li>
                                     </ul>
                                 </div>
-                                <div class="modal fade" id="myModal" role="dialog">
-                                    <div class="modal-dialog modal-sm">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <p>Contact will be deleted. Are you sure?</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <form id="deleteForm" method="post" action="{% url 'contacts:delete_contact' contact.id %}">
-                                                    {% csrf_token %}
-                                                    <button id="confirmDelete" type="submit" class="btn btn-danger">Yes</button>
-                                                    <button type="button" class="btn btn-default" onclick="closeModal()">Cancel</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     {% endfor %}
+                    <div class="d-flex justify-content-center">
+                        <a href="{% url 'contacts:content' %}" class="btn btn-primary" style="width: 100px;">Go Back</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -85,26 +65,6 @@
             var dropdownList = dropdownElementList.map(function (dropdownToggleEl) {
                 return new bootstrap.Dropdown(dropdownToggleEl)
             });
-        </script>
-        <script>
-            $(document).ready(function(){
-                $("#myInput").on("keyup", function() {
-                    var value = $(this).val().toLowerCase();
-                    $(".card-body").filter(function() {
-                        $(this).parent().parent().toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                    });
-                });
-            });
-        </script>
-        <script>
-            function openDeleteModal() {
-                $('#myModal').modal('show');
-            }
-        </script>
-        <script>
-            function closeModal() {
-                $('#myModal').modal('hide');
-                }
         </script>
     </body>
 </html>
