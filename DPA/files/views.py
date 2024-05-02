@@ -1,5 +1,4 @@
 import os
-
 from django.contrib.auth.models import User
 from django.db import transaction
 from django.shortcuts import render, redirect
@@ -50,7 +49,6 @@ async def get_file_list_from_drive(folder_id):
         async for page in res:
             for file in page.get("files"):
                 mime_type = file.get("mimeType")
-                file_info = [file.get('name'), file.get('id')]
                 match mime_type.split('/')[0]:
                     case 'application' | 'text':
                         documents[file.get('name')] = file.get('id')
@@ -103,22 +101,6 @@ def clean_temp_folder():
         os.unlink(file_path)
 
 
-def authorize(request):
-    uri = aiogoogle.oauth2.authorization_url(
-        client_creds={
-            'client_id': '222206179817-7oevt5trglkssvufbv58f7kf1ko4qstr.apps.googleusercontent.com',
-            'client_secret': '"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"',
-            'scopes': [
-                'https://www.googleapis.com/auth/drive.file',
-                'email',
-                'https://www.googleapis.com/auth/drive.install'
-            ],
-            'redirect_uri': 'http://localhost:5000/callback/aiogoogle'
-        },
-    )
-    return redirect(uri)
-
-
 def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
@@ -153,19 +135,18 @@ async def upload_file_to_drive(full_path, new_name, folder_id):
         print("Uploaded {} successfully.\nFile ID: {}".format(full_path, upload_res['id']))
 
 
-
 async def create_folder_on_drive(folder_name):
     async with Aiogoogle(user_creds=user_creds, client_creds=client_creds) as aiogoogle:
 
         drive_v3 = await aiogoogle.discover("drive", "v3")
         query = "name = '{}' and mimeType = 'application/vnd.google-apps.folder and trash = false'".format(folder_name)
-        existing_folders = await aiogoogle.as_user(drive_v3.files.list(q=query))
-        print(f"existing_folder: {existing_folders}")
+        existing_folder = await aiogoogle.as_user(drive_v3.files.list(q=query))
+        print(f"existing_folder: {existing_folder}")
 
-        if existing_folders['files']:
-            print(f'existing folder files:{existing_folders['files']}')
-            print(f"return existing folder {existing_folders['files'][0]['id']}")
-            return existing_folders['files'][0]['id']
+        if existing_folder['files']:
+            print(f'existing folder files:{existing_folder['files']}')
+            print(f"return existing folder {existing_folder['files'][0]['id']}")
+            return existing_folder['files'][0]['id']
 
         else:
             req = drive_v3.files.create(
@@ -185,6 +166,5 @@ async def delete_file(request, file_id):
         drive_v3 = await aiogoogle.discover('drive', 'v3')
         await aiogoogle.as_user(
             drive_v3.files.delete(fileId=file_id)
-                    )
+        )
     return redirect('files:listfiles')
-
