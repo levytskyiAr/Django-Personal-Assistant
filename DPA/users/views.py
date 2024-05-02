@@ -31,7 +31,7 @@ class RegisterView(View):
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
-            messages.success(request, f'Greetings {username}, your account successfully registered')
+            messages.success(request, f'Greetings {username}, your account has been successfully registered')
             return redirect(to='users:login')
         return render(request, self.template_name, context={'form': form})
 
