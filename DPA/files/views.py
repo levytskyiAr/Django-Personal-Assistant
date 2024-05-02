@@ -123,20 +123,19 @@ def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         uploaded_file = request.FILES['file']
-        temp_folder = f'media/uploads/temp_upload/{uploaded_file.name}'
+        temp_file = f'media/uploads/temp_upload/{uploaded_file.name}'
         folder_id = get_folder_id_by_user(request.user)
 
         if form.is_valid():
-            with open(temp_folder, 'wb+') as destination:
+            with open(temp_file, 'wb+') as destination:
                 for chunk in uploaded_file.chunks():
                     destination.write(chunk)
-            async_to_sync(upload_file_to_drive)(temp_folder, uploaded_file.name, folder_id=folder_id)
-            # os.remove(temp_folder)
+            async_to_sync(upload_file_to_drive)(temp_file, uploaded_file.name, folder_id=folder_id)
+            os.remove(temp_file)
             return redirect('files:listfiles')
     else:
         form = UploadFileForm()
     return render(request, 'files/upload_form.html', {'form': form})
-
 
 
 async def upload_file_to_drive(full_path, new_name, folder_id):
@@ -147,21 +146,12 @@ async def upload_file_to_drive(full_path, new_name, folder_id):
             upload_file=full_path,
             fields="id",
             json={"name": new_name,
-                  "parents": [folder_id]}
-        )
+                  "parents": [folder_id]})
 
-        # req.upload_file_content_type = mimetypes.guess_type(full_path)[0]
-
-        # Upload file
         upload_res = await aiogoogle.as_user(req)
         print(f"folder id: {folder_id}")
         print("Uploaded {} successfully.\nFile ID: {}".format(full_path, upload_res['id']))
-        # file_id = upload_res["id"]
-        # # Rename uploaded file
-        # await aiogoogle.as_user(
-        #     drive_v3.files.update(fileId=file_id, json={"name": new_name})
-        # )
-        # print("Renamed {} to {} successfully!".format(full_path, new_name))
+
 
 
 async def create_folder_on_drive(folder_name):
@@ -188,3 +178,13 @@ async def create_folder_on_drive(folder_name):
             print(folder_res)
             print("Created folder successfully.\nFolder ID: {}".format(folder_res['id']))
             return folder_res['id']
+
+
+async def delete_file(request, file_id):
+    async with Aiogoogle(user_creds=user_creds, client_creds=client_creds) as aiogoogle:
+        drive_v3 = await aiogoogle.discover('drive', 'v3')
+        await aiogoogle.as_user(
+            drive_v3.files.delete(fileId=file_id)
+                    )
+    return redirect('files:listfiles')
+

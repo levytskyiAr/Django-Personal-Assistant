@@ -8,7 +8,7 @@ urlpatterns = [
     path('open/<str:file_id>/', views.open_file, name='open_file'),
     path('download/<str:file_id>/', views.download_file, name='download_file'),
     path('upload/', views.upload_file, name='upload_file'),
-    path('authorize/', views.authorize, name='authorize')
+    path('delete/<str:file_id>', views.delete_file, name='delete_file')
 
 
 ]

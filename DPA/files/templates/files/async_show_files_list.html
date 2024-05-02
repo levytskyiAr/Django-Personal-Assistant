@@ -8,19 +8,17 @@
   <link rel="stylesheet" href="{% static 'files/style.css' %}">
 
 </head>
-<body id="bg" style="background-image: url('{% static 'files/images/background.jpg' %}');">
+<body id="bg" style="background-image: url('{% static 'files/images/background.jpg' %}');
+ background-size: cover; background-position: center;">
 
 <div class="container">
   <h1>File List</h1>
   <h2>Upload a file</h2>
   <div class="col-md-4 d-flex align-items-center justify-content-end">
-	<a href="" class="btn btn-light me-2">Main</a>
+	<a href="{% url 'users:index' %}" class="btn btn-light me-2">Main</a>
 	<p><a href="/files/listfiles" class="btn btn-light me-2">Files</a></p>
 	<p><a href="{% url 'files:upload_file' %}" class="btn btn-light me-2">Upload</a></p>
   </div>
-
-  <!--  <a href="{% url 'files:authorize' %}" class="btn btn-light me-2">Authorize</a>-->
-
 
   <h2>Documents</h2>
   <ul>
@@ -30,6 +28,7 @@
 	  <div class="link-actions">
 		<a href="{% url 'files:open_file' id %}" target="_blank">Open</a>
 		<a href="{% url 'files:download_file' id %}" target="_blank">Download</a>
+		<a href="{% url 'files:delete_file' id %}">Delete</a>
 	  </div>
 	</li>
 	{% endfor %}
@@ -43,6 +42,7 @@
 	  <div class="link-actions">
 		<a href="{% url 'files:open_file' id %}" target="_blank">Open</a>
 		<a href="{% url 'files:download_file' id %}" target="_blank">Download</a>
+		<a href="{% url 'files:delete_file' id %}">Delete</a>
 	  </div>
 	</li>
 	{% endfor %}
@@ -56,6 +56,7 @@
 	  <div class="link-actions">
 		<a href="{% url 'files:open_file' id %}" target="_blank">Open</a>
 		<a href="{% url 'files:download_file' id %}" target="_blank">Download</a>
+		<a href="{% url 'files:delete_file' id %}">Delete</a>
 	  </div>
 	</li>
 	{% endfor %}
@@ -69,6 +70,8 @@
 	  <div class="link-actions">
 		<a href="{% url 'files:open_file' id %}" target="_blank">Open</a>
 		<a href="{% url 'files:download_file' id %}" target="_blank">Download</a>
+		<a href="{% url 'files:delete_file' id %}">Delete</a>
+
 	  </div>
 	</li>
 	{% endfor %}

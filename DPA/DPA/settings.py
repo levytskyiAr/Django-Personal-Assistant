@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'DPA.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dpa_service',  # Database name
+        'USER': 'vladislavb2024',  # Database user
+        'PASSWORD': 'bTTiVX4P6oShCHrr3v2yDCNYwALybI9Y',  # Database password
+        'HOST': 'dpg-cop8gr0cmk4c739q4v60-a.frankfurt-postgres.render.com',  # Database host (defaults to localhost)
+        'PORT': '5432',  # Database port (defaults to 5432)
     }
 }
 
