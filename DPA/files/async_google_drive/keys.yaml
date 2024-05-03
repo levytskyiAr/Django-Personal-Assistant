@@ -4,13 +4,14 @@ client_creds:
   scopes:
     - https://www.googleapis.com/auth/drive.file
     - https://www.googleapis.com/auth/drive.install
+    - email
 
 
 
 user_creds:
   email: barsujkoanatoliy@gmail.com  # Optional
-  access_token: "ya29.a0Ad52N3_Qd-phoxGE_e8PJHheGnHR2U9Lgy9kGXK7sjBXhi4FVeksCt6qMKjYu8K6M125aEYzmIFVPpZuwzKO_AxcYCqeRLZDdKLK5ZNGmgUI7x94PreJbBwioJrNecQwF7pSmuACKNlXr28V59WMRVeKXycFpGRshELNHAaCgYKATwSARISFQHGX2Mitm5mX_eXYrYTqxfFOBNE6Q0173"
-  refresh_token: "1//09viPch5Rwxk8CgYIARAAGAkSNwF-L9IrfaNwxe5rxTbC_2_wr2Z0_-AAg8166YUHU0AYvhXN1W25qrrxp-cMVK2HZhiVG0nE2zM"
+  access_token: "ya29.a0AXooCgu3XH7Y5qPA1udO4xkVge4YnIR-YCFuLt3OqYk-GausoVOtITwPiBzHJ_-MP9aNr-yfF6ivR5MlEWqVjMofSQq9r90HoG1Pwl1DfWL6-yhT1IW1DfOePFDeTWm3cpEr-VeS1TSiPVp5N7KLjWvQSxz0VtwLW1ONaCgYKAS8SARISFQHGX2Mi5rwziHZAB2oH9xdJeXTtvg0171"
+  refresh_token: "1//09PDY2zmzYl8WCgYIARAAGAkSNwF-L9IrV4yE1gf2rW6qGy6oQLDqPuj0UKLnL9lfKAqgsEgOgWsqDw6TathUtclhTjH-Wq2HeFI"
   expires_at:
 
 api_key:

@@ -1,15 +1,18 @@
 import os
+
+import aiogoogle
 from django.contrib.auth.models import User
 from django.db import transaction
 from django.shortcuts import render, redirect
-from django.http import FileResponse, HttpResponse
+from django.http import FileResponse
 from aiogoogle import Aiogoogle
-from asgiref.sync import sync_to_async, async_to_sync
+from asgiref.sync import async_to_sync
 
 from .async_google_drive.helpers import user_creds, client_creds
-import aiogoogle
 from .forms import UploadFileForm
 from .models import UserFolderGoogleDrive
+
+TEMP = f'media/uploads/temp'
 
 
 def get_folder_id_by_user(user: User) -> str:
@@ -43,7 +46,6 @@ async def get_file_list_from_drive(folder_id):
 
     async with Aiogoogle(user_creds=user_creds, client_creds=client_creds) as aiogoogle:
         drive_v3 = await aiogoogle.discover("drive", "v3")
-        # Use the aiogoogle client to list files
         res = await aiogoogle.as_user(drive_v3.files.list(q=f"'{folder_id}' in parents and trashed=false"),
                                       full_res=True)
         async for page in res:
@@ -80,7 +82,6 @@ async def download_file(request, file_id):
         drive_v3.files.get(fileId=file_id, download_file=path_to_temporary_file, alt='media'), )
 
     response = FileResponse(open(path_to_temporary_file, 'rb'), as_attachment=True)
-
     return response
 
 
@@ -88,16 +89,15 @@ async def create_file_with_correct_name(file_id):
     async with Aiogoogle(user_creds=user_creds, client_creds=client_creds) as aiogoogle:
         drive_v3 = await aiogoogle.discover("drive", "v3")
         res = await aiogoogle.as_user(drive_v3.files.get(fileId=file_id))
-        path = f'media/uploads/temp_upload/{res['name']}'
+        path = os.path.join(TEMP, res['name'])
         fd = os.open(path, os.O_CREAT, 0o666)
         os.close(fd)
         return path
 
 
 def clean_temp_folder():
-    folder_path = 'media/upload/temp_download'
-    for filename in os.listdir(folder_path):
-        file_path = os.path.join(folder_path, filename)
+    for filename in os.listdir(TEMP):
+        file_path = os.path.join(TEMP, filename)
         os.unlink(file_path)
 
 
@@ -105,7 +105,7 @@ def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         uploaded_file = request.FILES['file']
-        temp_file = f'media/uploads/temp_upload/{uploaded_file.name}'
+        temp_file = os.path.join(TEMP, uploaded_file.name)
         folder_id = get_folder_id_by_user(request.user)
 
         if form.is_valid():
@@ -167,4 +167,10 @@ async def delete_file(request, file_id):
         await aiogoogle.as_user(
             drive_v3.files.delete(fileId=file_id)
         )
+
     return redirect('files:listfiles')
+
+
+
+
+
