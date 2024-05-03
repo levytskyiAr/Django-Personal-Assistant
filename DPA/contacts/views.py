@@ -5,11 +5,13 @@ from .forms import ContactForm
 from django.views.generic import ListView
 from django.views.generic import View
 from django.http import JsonResponse
+from django.utils import timezone
+from django.contrib import messages
+from django.db import IntegrityError
 
 
 def contact_list(request):
     return render(request, 'contacts/content.html')
-    # return Contact.objects.using('postgres').all()
 
 
 @login_required
@@ -17,17 +19,18 @@ def create_contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
         if form.is_valid():
-            # Отримання даних з форми
-            first_name = form.cleaned_data['first_name']
-            last_name = form.cleaned_data['last_name']
-            email = form.cleaned_data['email']
-            phone = form.cleaned_data['phone']
-            birthday = form.cleaned_data['birthday']
-            # Отримання поточного користувача
-            user = request.user
-            # Створення нового контакту з встановленням ідентифікатора користувача
-            Contact.objects.create(first_name=first_name, last_name=last_name, email=email, phone=phone, birthday=birthday, user=user)
-            return redirect('contacts:profile')
+            try:
+                first_name = form.cleaned_data['first_name']
+                last_name = form.cleaned_data['last_name']
+                phone = form.cleaned_data['phone']
+                email = form.cleaned_data['email']
+                address = form.cleaned_data['address']
+                birthday = form.cleaned_data['birthday']
+                user = request.user
+                Contact.objects.create(first_name=first_name, last_name=last_name, phone=phone, email=email, address=address, birthday=birthday, user=user)
+                return redirect('contacts:content')
+            except IntegrityError:
+                messages.error(request, 'Contact with the same name and phone number already exists!')
     else:
         form = ContactForm()
     return render(request, 'contacts/create_contact.html', {'form': form})
@@ -53,7 +56,7 @@ class EditContactView(View):
         form = ContactForm(request.POST, instance=contact)
         if form.is_valid():
             form.save()
-            return redirect('contacts:profile')
+            return redirect('contacts:content')
         return render(request, 'contacts/edit_contact.html', {'form': form, 'contact_id': contact_id})
 
 
@@ -61,5 +64,17 @@ def delete_contact(request, contact_id):
     if request.method == 'POST':
         contact = Contact.objects.get(id=contact_id)
         contact.delete()
-        return redirect('contacts:profile')
+        return redirect('contacts:content')
     return JsonResponse({'error': 'Invalid request method.'}, status=405)
+
+
+def upcoming_birthdays(request):
+    birthdays = []
+    today = timezone.now().date()
+    upcoming_birthdays_contacts = Contact.objects.filter(user_id=request.user)
+    for contact in upcoming_birthdays_contacts:
+        birthday = contact.birthday.replace(year=today.year)
+        difference = birthday - today
+        if 0 < difference.days <= 7:
+            birthdays.append(contact)
+    return render(request, 'contacts/upcoming_birthdays.html', {'birthdays': birthdays})

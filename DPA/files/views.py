@@ -1,6 +1,7 @@
 import os
 
 from django.contrib.auth.models import User
+from django.db import transaction
 from django.shortcuts import render, redirect
 from django.http import FileResponse, HttpResponse
 from aiogoogle import Aiogoogle
@@ -12,23 +13,21 @@ from .forms import UploadFileForm
 from .models import UserFolderGoogleDrive
 
 
-def get_filelist_from_drive(request):
-    user_id = request.user.id
-    folders = UserFolderGoogleDrive.objects.get(user=user_id)
-    print(folders.folder_drive_id)
-    # for folder in folders:
-    #     print(folder.folder_drive_id, folder.user_id)
-    # print(user_id)
-    # try:
-    #     user = User.objects.get(id=user_id)
-    #     folder = UserFolderGoogleDrive.objects.get(user=user)
-    #     print(folder)
-    # except User.DoesNotExist:
-    #     print(f"User with id {user_id} does not exist.")
-    # except UserFolderGoogleDrive.DoesNotExist:
-    #     print(f"Folder for user with id {user_id} does not exist.")
+def get_folder_id_by_user(user: User) -> str:
+    with transaction.atomic():
+        write_to_db, created = UserFolderGoogleDrive.objects.get_or_create(user=user)
+        if created:
+            get_user = User.objects.get(id=user.id)
+            folder_name_for_drive = f"id^{user.id}__username^{get_user.username}"
+            folder_id = async_to_sync(create_folder_on_drive)(folder_name_for_drive)
+            write_to_db.folder_drive_id = folder_id
+            write_to_db.save()
+            print(write_to_db.folder_drive_id)
+        return write_to_db.folder_drive_id
 
-    documents, videos, images, other = async_to_sync(get_file_list_from_drive)(folders.folder_drive_id)
+
+def get_filelist_from_drive(request):
+    documents, videos, images, other = async_to_sync(get_file_list_from_drive)(get_folder_id_by_user(request.user))
     return render(request, 'files/async_show_files_list.html', {
         'documents': documents,
         'videos': videos,
@@ -61,12 +60,7 @@ async def get_file_list_from_drive(folder_id):
                         images[file.get('name')] = file.get('id')
                     case _:  # Catch all other files
                         other[file.get('name')] = file.get('id')
-    # return render(request, 'files/async_show_files_list.html', {
-    #     'documents': documents,
-    #     'videos': videos,
-    #     'images': images,
-    #     'other': other
-    # })
+
     return documents, videos, images, other
 
 
@@ -125,29 +119,28 @@ def authorize(request):
     return redirect(uri)
 
 
-async def upload_file(request):
+def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         uploaded_file = request.FILES['file']
         temp_folder = f'media/uploads/temp_upload/{uploaded_file.name}'
-        # file_name = uploaded_file.name
-        # file_mimetype = uploaded_file.content_type
+        folder_id = get_folder_id_by_user(request.user)
 
         if form.is_valid():
             with open(temp_folder, 'wb+') as destination:
                 for chunk in uploaded_file.chunks():
                     destination.write(chunk)
-            await upload_file_to_drive(temp_folder, uploaded_file.name)
+            async_to_sync(upload_file_to_drive)(temp_folder, uploaded_file.name, folder_id=folder_id)
             # os.remove(temp_folder)
-            return render(request, 'files/upload_success.html')
+            return redirect('files:listfiles')
     else:
         form = UploadFileForm()
     return render(request, 'files/upload_form.html', {'form': form})
 
 
-async def upload_file_to_drive(full_path, new_name):
+
+async def upload_file_to_drive(full_path, new_name, folder_id):
     async with Aiogoogle(user_creds=user_creds, client_creds=client_creds) as aiogoogle:
-        folder_id = await create_folder_on_drive("Id_user_name2")
         drive_v3 = await aiogoogle.discover("drive", "v3")
 
         req = drive_v3.files.create(
@@ -175,9 +168,9 @@ async def create_folder_on_drive(folder_name):
     async with Aiogoogle(user_creds=user_creds, client_creds=client_creds) as aiogoogle:
 
         drive_v3 = await aiogoogle.discover("drive", "v3")
-        query = "name = '{}' and mimeType = 'application/vnd.google-apps.folder'".format(folder_name)
+        query = "name = '{}' and mimeType = 'application/vnd.google-apps.folder and trash = false'".format(folder_name)
         existing_folders = await aiogoogle.as_user(drive_v3.files.list(q=query))
-        print(f"existing_folders: {existing_folders}")
+        print(f"existing_folder: {existing_folders}")
 
         if existing_folders['files']:
             print(f'existing folder files:{existing_folders['files']}')
@@ -192,5 +185,6 @@ async def create_folder_on_drive(folder_name):
 
             # Execute the request
             folder_res = await aiogoogle.as_user(req)
+            print(folder_res)
             print("Created folder successfully.\nFolder ID: {}".format(folder_res['id']))
             return folder_res['id']

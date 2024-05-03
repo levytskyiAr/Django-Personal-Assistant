@@ -82,8 +82,12 @@ WSGI_APPLICATION = 'DPA.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dpa_service',
+        'USER': 'vladislavb2024',
+        'PASSWORD': 'bTTiVX4P6oShCHrr3v2yDCNYwALybI9Y',
+        'HOST': 'dpg-cop8gr0cmk4c739q4v60-a.frankfurt-postgres.render.com',
+        'PORT': '5432',
     }
 }
 
@@ -131,4 +135,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # DATABASE_ROUTERS = ['contacts.routers.DatabaseRouter']
-

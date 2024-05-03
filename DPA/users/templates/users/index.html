@@ -18,8 +18,15 @@
                 </h1>
             </div>
             <div class="col-md-4 d-flex align-items-center justify-content-end">
-                <a href="/register" class="btn btn-light me-2">Sign Up</a>
-                <a href="/login" class="btn btn-light me-2">Login</a>
+                {% if user.is_authenticated %}
+                <form action="logout/" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-light me-2">Log Out</button>
+                    </form>
+                {% else %}
+                    <a href="/register" class="btn btn-light me-2">Sign Up</a>
+                    <a href="/login" class="btn btn-light me-2">Login</a>
+                {% endif %}
             </div>
         </div>
 
