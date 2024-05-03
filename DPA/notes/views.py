@@ -19,21 +19,10 @@ def main(request):
         HttpResponse: A response with the index.html template rendered with the page context.
 
     """
-    # Get all notes for the current user
     notes = Note.objects.filter(author=request.user).all()
-
-    # Create a paginator object with a page size of 5 notes per page
     paginator = Paginator(notes, 5)
-
-    # Get the page number from the request's GET parameters
     page_number = request.GET.get("page")
-
-    # Retrieve the page object based on the page number
     page_obj = paginator.get_page(page_number)
-    #
-    # index_url = reverse('notes:index')  # 'notes' - ім'я вашої додаткової аплікації
-
-    # Render the index.html template with the page object as context
     return render(request, "notes/index.html", {"page_obj": page_obj})
 
 
@@ -90,35 +79,28 @@ def note(request):
         None
     """
     if request.method == "POST":
-        # Get the name, description, and tags from the POST request
         name = request.POST["name"]
         description = request.POST["description"]
         list_tags = request.POST.getlist("tags")
 
         if name and description:
-            # Filter the tags based on name and author
             tags = (
                 Tag.objects.filter(name__in=list_tags).filter(author=request.user).all()
             )
 
-            # Create a new note with the given name, description, and author
             note = Note.objects.create(
                 name=name, description=description, author=request.user
             )
 
-            # Add the filtered tags to the note
             for tag in tags.iterator():
                 note.tags.add(tag)
 
-            # Display a success message
             messages.success(request, f"Note {name} created")
 
         return redirect(to="/notes/note/")
 
-    # Get all tags for the current user
     tags = Tag.objects.filter(author=request.user).all()
 
-    # Render the note form with the tags
     return render(request, "notes/note.html", {"tags": tags})
 
 
@@ -136,13 +118,10 @@ def detail(request, note_id):
     Returns:
         HttpResponse: The rendered detail.html template with the note object as context.
     """
-    # Retrieve the note with the given note_id from the database
     note = Note.objects.get(pk=note_id)
 
-    # Generate a comma-separated string of tag names associated with the note
     note.tag_list = ", ".join([str(name) for name in note.tags.all()])
 
-    # Render the detail.html template with the note object as context
     return render(request, "notes/detail.html", {"note": note})
 
 
@@ -174,9 +153,9 @@ def delete_note(request, note_id):
     Returns:
         HttpResponseRedirect: A redirect response to the note app homepage.
     """
-    note = Note.objects.get(pk=note_id)  # Get the note with the given note_id
-    note.delete()  # Delete the note
-    return redirect(to="/notes/")  # Redirect to the note app homepage
+    note = Note.objects.get(pk=note_id)
+    note.delete()
+    return redirect(to="/notes/")
 
 
 @login_required
@@ -192,17 +171,16 @@ def search_note(request):
 
     """
     if request.method == "GET":
-        query = request.GET.get("q")  # Get the query parameter from the request
+        query = request.GET.get("q")
         notes = Note.objects.filter(
             name__icontains=query, author=request.user
-        )  # Filter notes by name and author
+        )
     else:
-        notes = []  # Set notes to an empty list if the request method is not GET
+        notes = []
 
     return render(
         request, "notes/search_note.html", {"notes": notes}
-    )  # Render the template with the notes as
-    # context
+    )
 
 @login_required
 def edit_note(request, note_id):

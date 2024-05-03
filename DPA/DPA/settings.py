@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'files.apps.FilesConfig',
     'users',
     'contacts',
-    'notes'
+    'notes' 
 ]
 
 MIDDLEWARE = [
