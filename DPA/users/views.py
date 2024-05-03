@@ -1,11 +1,13 @@
 from django import forms
-from django.contrib.auth import authenticate, login, update_session_auth_hash
+from django.contrib.auth import authenticate, update_session_auth_hash
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.views import View
-from .forms import RegisterForm
 from django.contrib.auth.views import LoginView
+from django.contrib.auth import logout
+
+from .forms import RegisterForm
 
 
 def index(request):
@@ -31,7 +33,7 @@ class RegisterView(View):
         if form.is_valid():
             form.save()
             username = form.cleaned_data['username']
-            messages.success(request, f'Greetings {username}, your account successfully registered')
+            messages.success(request, f'Greetings {username}, your account has been successfully registered')
             return redirect(to='users:login')
         return render(request, self.template_name, context={'form': form})
 
@@ -79,3 +81,8 @@ def change_password(request):
     else:
         form = PasswordChangeForm(request.user)
     return render(request, template_name, {'form': form})
+
+
+def logout_view(request):
+    logout(request)
+    return redirect('/')

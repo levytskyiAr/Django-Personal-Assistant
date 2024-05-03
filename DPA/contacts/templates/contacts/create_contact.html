@@ -65,12 +65,16 @@
                     </div>
                     {% endfor %}
                         {% if messages %}
-                        <ul class="messages">
-                            {% for message in messages %}
-                                <li class="error-message">{{ message }}</li>
-                            {% endfor %}
-                        </ul>
-                    {% endif %}
+                            <ul class="messages">
+                                {% for message in messages %}
+                                    {% if message.tags == 'success' %}
+                                        <li class="success-message">{{ message }}</li>
+                                    {% elif message.tags == 'error' %}
+                                        <li class="error-message">{{ message }}</li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
                     <button type="submit" class="btn btn-primary">Save</button>
                 </form>
             </div>
