@@ -71,7 +71,7 @@ def delete_contact(request, contact_id):
 def upcoming_birthdays(request):
     birthdays = []
     today = timezone.now().date()
-    upcoming_birthdays_contacts = Contact.objects.all()
+    upcoming_birthdays_contacts = Contact.objects.filter(user_id=request.user)
     for contact in upcoming_birthdays_contacts:
         birthday = contact.birthday.replace(year=today.year)
         difference = birthday - today

@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from . import views
 from .views import CustomLoginView
@@ -11,4 +11,5 @@ urlpatterns = [
     path('login/', CustomLoginView.as_view(), name='login'),
     path('accounts/profile/', views.profile, name='profile'),
     path('change_password/', views.change_password, name='change_password'),
+    path('logout/', views.logout_view, name='logout'),
 ]
