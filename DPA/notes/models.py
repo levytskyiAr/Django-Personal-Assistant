@@ -1,28 +1,14 @@
 from django.contrib.auth import get_user_model
 from django.db import models
 
-
-# Create your models here.
-class Tag(models.Model):
-    name = models.CharField(max_length=25, null=False)
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True)
-
-    def __str__(self):
-        return self.name
-
+User = get_user_model()
 
 class Note(models.Model):
-    name = models.CharField(max_length=50, null=False)
-    description = models.CharField(max_length=150, null=False)
-    done = models.BooleanField(default=False)
-    created = models.DateTimeField(auto_now_add=True)
-    tags = models.ManyToManyField(Tag, through='NoteToTag')
-    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE, null=True)
+    title = models.CharField(max_length=50, null=False)
+    note = models.CharField(null=False)
+    tags = models.CharField(max_length=20, null=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='notes')
 
-    def __str__(self):
-        return self.name
-
-
-class NoteToTag(models.Model):
-    note = models.ForeignKey(Note, on_delete=models.CASCADE)
-    tag = models.ForeignKey(Tag, on_delete=models.CASCADE)
+    class Meta:
+        unique_together = ('title', 'note', 'tags')
+        db_table = 'notes'
