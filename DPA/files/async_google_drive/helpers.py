@@ -11,7 +11,7 @@ from aiogoogle.auth.creds import (
 
 
 try:
-    with open('files/async_google_drive/keys.yaml', "r") as stream:
+    with open('files/async_google_drive/authentification_script/keys.yaml', "r") as stream:
         config = yaml.load(stream, Loader=yaml.FullLoader)
 except Exception as e:
     print("Rename keys.yaml to keys.yaml")
