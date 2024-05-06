@@ -6,13 +6,20 @@ from django.db import transaction
 from django.shortcuts import render, redirect
 from django.http import FileResponse
 from aiogoogle import Aiogoogle
-from asgiref.sync import async_to_sync
+from asgiref.sync import async_to_sync, sync_to_async
+from django.core.cache import cache
 
 from .async_google_drive.helpers import user_creds, client_creds
 from .forms import UploadFileForm
 from .models import UserFolderGoogleDrive
 
 TEMP = f'media/uploads/temp'
+
+
+def get_cache_data(request):
+    data = async_to_sync(get_file_list_from_drive)(get_folder_id_by_user(request.user))
+    cache.set(request.user.id, data, timeout=3600)
+    return data
 
 
 def get_folder_id_by_user(user: User) -> str:
@@ -29,13 +36,14 @@ def get_folder_id_by_user(user: User) -> str:
 
 
 def get_filelist_from_drive(request):
-    documents, videos, images, other = async_to_sync(get_file_list_from_drive)(get_folder_id_by_user(request.user))
-    return render(request, 'files/async_show_files_list.html', {
-        'documents': documents,
-        'videos': videos,
-        'images': images,
-        'other': other
-    })
+    data = cache.get(request.user.id)
+    if not data:
+        data = get_cache_data(request)
+    return render(request, 'files/base_for_files.html',
+                  {'documents': data['documents'],
+                   'images': data['images'], 'videos': data['videos'],
+                   'other': data['other'], 'user_id': request.user.id
+                   })
 
 
 async def get_file_list_from_drive(folder_id):
@@ -48,6 +56,7 @@ async def get_file_list_from_drive(folder_id):
         drive_v3 = await aiogoogle.discover("drive", "v3")
         res = await aiogoogle.as_user(drive_v3.files.list(q=f"'{folder_id}' in parents and trashed=false"),
                                       full_res=True)
+
         async for page in res:
             for file in page.get("files"):
                 mime_type = file.get("mimeType")
@@ -60,8 +69,13 @@ async def get_file_list_from_drive(folder_id):
                         images[file.get('name')] = file.get('id')
                     case _:  # Catch all other files
                         other[file.get('name')] = file.get('id')
-
-    return documents, videos, images, other
+    data = {
+        'documents': documents,
+        'videos': videos,
+        'images': images,
+        'other': other
+    }
+    return data
 
 
 async def open_file(request, file_id):
@@ -113,8 +127,9 @@ def upload_file(request):
                 for chunk in uploaded_file.chunks():
                     destination.write(chunk)
             async_to_sync(upload_file_to_drive)(temp_file, uploaded_file.name, folder_id=folder_id)
+            get_cache_data(request)
             os.remove(temp_file)
-            return redirect('files:show_images')
+            return redirect('files:listfiles')
     else:
         form = UploadFileForm()
     return render(request, 'files/upload_form.html', {'form': form})
@@ -161,15 +176,43 @@ async def create_folder_on_drive(folder_name):
             return folder_res['id']
 
 
-async def delete_file(request, file_id):
+async def delete_file(request, file_id, template_name):
+
     async with Aiogoogle(user_creds=user_creds, client_creds=client_creds) as aiogoogle:
         drive_v3 = await aiogoogle.discover('drive', 'v3')
         await aiogoogle.as_user(
             drive_v3.files.delete(fileId=file_id)
         )
+    await sync_to_async(get_cache_data)(request)
 
-    return redirect('files:listfiles')
+    match template_name:
+        case 'images':
+            return_template = 'files:show_images'
+        case 'documents':
+            return_template = 'files:show_documents'
+        case 'videos':
+            return_template = 'files:show_videos'
+        case 'other':
+            return_template = 'files:show_other'
+    print(template_name)
+    return redirect(return_template)
 
 
 def show_images(request):
-    return render(request, 'files/images.html')
+    data = get_cache_data(request)
+    return render(request, 'files/images.html', context={'images': data['images']})
+
+
+def show_documents(request):
+    data = get_cache_data(request)
+    return render(request, 'files/documents.html', context={'documents': data['documents']})
+
+
+def show_videos(request):
+    data = get_cache_data(request)
+    return render(request, 'files/videos.html', context={'videos': data['videos']})
+
+
+def show_other(request):
+    data = get_cache_data(request)
+    return render(request, 'files/other.html', context={'other': data['other']})

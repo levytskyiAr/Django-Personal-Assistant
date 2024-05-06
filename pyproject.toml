@@ -14,6 +14,8 @@ psycopg2 = "^2.9.9"
 aiogoogle = "^5.7.0"
 django-background-tasks = "^1.2.5"
 django4-background-tasks = "^1.2.9"
+redis = {extras = ["hiredis"], version = "^5.0.4"}
+django-redis = "^5.4.0"
 
 
 [build-system]
