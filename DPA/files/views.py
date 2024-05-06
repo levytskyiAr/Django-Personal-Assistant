@@ -114,7 +114,7 @@ def upload_file(request):
                     destination.write(chunk)
             async_to_sync(upload_file_to_drive)(temp_file, uploaded_file.name, folder_id=folder_id)
             os.remove(temp_file)
-            return redirect('files:listfiles')
+            return redirect('files:show_images')
     else:
         form = UploadFileForm()
     return render(request, 'files/upload_form.html', {'form': form})
@@ -171,6 +171,5 @@ async def delete_file(request, file_id):
     return redirect('files:listfiles')
 
 
-
-
-
+def show_images(request):
+    return render(request, 'files/images.html')

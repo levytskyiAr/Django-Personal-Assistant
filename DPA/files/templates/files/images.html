@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full-Width Dropdown with 300% Height and Font</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  .full-width-dropdown {
+    width: 100%;
+    position: relative;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+    overflow: hidden;
+    height: 200%; /* Increase the height to 300% */
+  }
+  .full-width-dropdown select {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    -webkit-appearance: none; /* Remove default arrow for Chrome */
+    -moz-appearance: none; /* Remove default arrow for Firefox */
+    appearance: none; /* Remove default arrow for modern browsers */
+    font-size: 200%; /* Increase the font size to 300% */
+  }
+  .full-width-dropdown:after {
+    content: '\25BC'; /* Down arrow character */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #333;
+    font-size: 200%; /* Increase the arrow font size to match the dropdown font size */
+  }
+</style>
+</head>
+<body>
+
+<div class="full-width-dropdown">
+  {% for title, id in documents.items %}
+  <select>
+    <option value="">Documents</option>
+    <option value="option1">{{title}}</option>
+	{% enfor %}
+
+  </select>
+</div>
+
+</body>
+</html>

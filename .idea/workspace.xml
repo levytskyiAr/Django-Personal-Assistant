@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e490773-6d45-4eb5-9fd1-c4618dfa9ae9" name="Changes" comment="as" />
+    <list default="true" id="8e490773-6d45-4eb5-9fd1-c4618dfa9ae9" name="Changes" comment="as">
+      <change afterPath="$PROJECT_DIR$/DPA/files/templates/files/base_for_files.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/async_show_files_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/templates/files/async_show_files_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/users/templates/users/profile.html" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,23 +54,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.tests.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/RollPy/Documents/GitHub/Django-Personal-Assistant/DPA/files",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;async__cloud&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/RollPy/Documents/GitHub/Django-Personal-Assistant/DPA/files&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\templates\files" />
       <recent name="D:\Python\GoIT\Module 2\Team_Project\DPA\users\templates\users" />
       <recent name="D:\Python\GoIT\Module 2\Team_Project\DPA\users\templates" />
     </key>

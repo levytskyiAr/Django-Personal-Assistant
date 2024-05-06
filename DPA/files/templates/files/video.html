@@ -1,0 +1,36 @@
+{% extends "files/base_for_files.html" %}
+{% block content %}
+<h2>Videos</h2>
+  <ul>
+	{% for title, id in videos.items %}
+	<li>
+	  <span>{{ title }}</span>
+	  <div class="dropdown mt-2">
+		<button class="btn btn-default dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+		  Options
+		</button>
+		<ul class="dropdown-menu">
+		  <li><a class="dropdown-item" href="{% url 'files:open_file' id %}" target="_blank">Open</a></li>
+		  <li><a class="dropdown-item" href="{% url 'files:download_file' id %}" target="_blank">Download</a></li>
+		  <li><a class="dropdown-item" href="#" onclick="openDeleteModal()">Delete</a></li>
+		</ul>
+	  </div>
+	  <div class="modal fade" id="myModal" role="dialog">
+		<div class="modal-dialog modal-sm">
+		  <div class="modal-content">
+			<div class="modal-body">
+			  <p>File will be deleted. Are you sure?</p>
+			</div>
+			<div class="modal-footer">
+			  <form id="deleteForm" method="post" action="{% url 'files:delete_file' id %}">
+				{% csrf_token %}
+				<button id="confirmDelete" type="submit" class="btn btn-danger">Yes</button>
+				<button type="button" class="btn btn-default" onclick="closeModal()">Cancel</button>
+			  </form>
+			</div>
+		  </div>
+		</div>
+	  </div>
+	</li>
+  </ul>
+{% endblock %}
