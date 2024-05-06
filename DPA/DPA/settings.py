@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 from pathlib import Path
 import environ
+from dotenv import load_dotenv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -83,14 +84,16 @@ WSGI_APPLICATION = 'DPA.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+load_dotenv()
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dpa_service',  # Database name
-        'USER': 'vladislavb2024',  # Database user
-        'PASSWORD': 'bTTiVX4P6oShCHrr3v2yDCNYwALybI9Y',  # Database password
-        'HOST': 'dpg-cop8gr0cmk4c739q4v60-a.frankfurt-postgres.render.com',  # Database host (defaults to localhost)
-        'PORT': '5432',  # Database port (defaults to 5432)
+        'ENGINE': os.getenv('DATABASE_ENGINE'),
+        'NAME': os.getenv('DATABASE_NAME'),
+        'USER': os.getenv('DATABASE_USER'),
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
+        'HOST': os.getenv('DATABASE_HOST'),
+        'PORT': os.getenv('DATABASE_PORT'),
     }
 }
 CACHES = {
