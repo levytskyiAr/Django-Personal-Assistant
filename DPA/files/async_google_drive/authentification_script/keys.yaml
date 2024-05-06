@@ -1,0 +1,17 @@
+client_creds:
+  client_id: "222206179817-7oevt5trglkssvufbv58f7kf1ko4qstr.apps.googleusercontent.com"
+  client_secret: "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"
+  scopes:
+    - https://www.googleapis.com/auth/drive.file
+    - https://www.googleapis.com/auth/drive.install
+    - email
+
+
+
+user_creds:
+  email: barsujkoanatoliy@gmail.com  # Optional
+  access_token: "ya29.a0AXooCgtJYwJKxwA3YCxiLI9vLWhu2nrY-MCLhXAXXa61XxBIaFZKOOWMYlu49R1PpW5dJLlQI19inRuxUOJ4aFaAdmjCwbVRtDu2ILj06iwcMmBt3EgQbZooiBzli2CIe_DXlXVMk8ejBk8F2cNJVoD04VXOHMYXTfNbaCgYKAckSARISFQHGX2Mi-ijOlERl-Lrzo_N20YCd4w0171"
+  refresh_token: "1//09TjxxsJQX17yCgYIARAAGAkSNwF-L9Ir-oBIL4K6tJE508E4OEjsblGJhQb-c27oxhpaeu3CR619ldpS3OMYXSiAOzLQ2Ww6OkE"
+  expires_at:
+
+api_key:

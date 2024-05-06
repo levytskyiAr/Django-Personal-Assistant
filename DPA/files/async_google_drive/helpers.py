@@ -9,11 +9,12 @@ from aiogoogle.auth.creds import (
     ApiKey,
 )
 
+
 try:
-    with open('files/async_google_drive/keys.yaml', "r") as stream:
+    with open('files/async_google_drive/authentification_script/keys.yaml', "r") as stream:
         config = yaml.load(stream, Loader=yaml.FullLoader)
 except Exception as e:
-    print("Rename _keys.yaml to keys.yaml")
+    print("Rename keys.yaml to keys.yaml")
     raise e
 
 email = config["user_creds"]["email"]
@@ -31,3 +32,4 @@ client_creds = ClientCreds(
     client_secret=config["client_creds"]["client_secret"],
     scopes=config["client_creds"]["scopes"],
 )
+

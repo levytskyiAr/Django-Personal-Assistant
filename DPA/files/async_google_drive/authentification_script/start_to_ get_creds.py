@@ -1,12 +1,14 @@
-#!/usr/bin/python3.7
+
 
 import sys
 import webbrowser
+import json
 
 from aiohttp.web import RouteTableDef, Application, run_app, Response, json_response, HTTPFound
 
 from aiogoogle import Aiogoogle
 from aiogoogle.auth.utils import create_secret
+
 
 try:
     import yaml
@@ -14,14 +16,14 @@ except:  # noqa: E722  bare-except
     print('couldn\'t import yaml. Install "pyyaml" first')
     sys.exit(-1)
 
-sys.path.append("../../..")
+sys.path.append("../")
 
 
 try:
     with open("keys.yaml", "r") as stream:
         config = yaml.load(stream, Loader=yaml.FullLoader)
 except Exception as e:
-    print("Rename keys.yaml to keys.yaml")
+    print("Rename _keys.yaml to keys.yaml")
     raise e
 
 EMAIL = config["user_creds"]["email"]
@@ -35,7 +37,7 @@ state = create_secret()  # Shouldn't be a global hardcoded variable.
 
 
 LOCAL_ADDRESS = "localhost"
-LOCAL_PORT = 8000
+LOCAL_PORT = 5000
 
 routes = RouteTableDef()
 aiogoogle = Aiogoogle(client_creds=CLIENT_CREDS)
@@ -100,6 +102,10 @@ async def callback(request):
         full_user_creds = await aiogoogle.oauth2.build_user_creds(
             grant=request.query.get("code"), client_creds=CLIENT_CREDS
         )
+        with open('user_creds.json', 'w') as fd:
+            json.dump(full_user_creds, fd)
+
+
         return json_response(full_user_creds)
     else:
         # Should either receive a code or an error

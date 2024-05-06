@@ -1,0 +1,20 @@
+{% extends "files/base_for_files.html" %}
+{% block content %}
+<div class="center-container">
+  <div class="button-wrapper">
+    <a href="{% url 'files:upload_file' %}" class="btn btn-warning big-button">Upload</a>
+  </div>
+  <div class="button-wrapper">
+    <a href="/content" class="btn btn-warning big-button">Documents</a>
+  </div>
+  <div class="button-wrapper">
+    <a href="{% url 'files:show_images' %}" class="btn btn-warning big-button">Images</a>
+  </div>
+  <div class="button-wrapper">
+    <a href="/files/listfiles" class="btn btn-warning big-button">Video</a>
+  </div>
+  <div class="button-wrapper">
+    <a href="/files/listfiles" class="btn btn-warning big-button">Other</a>
+  </div>
+</div>
+{% endblock %}
