@@ -1398,3 +1398,110 @@ Traceback (most recent call last):
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 django.db.utils.OperationalError: connection to server at "dpg-cop8gr0cmk4c739q4v60-a.frankfurt-postgres.render.com" (3.120.236.187), port 5432 failed: SSL connection has been closed unexpectedly
 
+Not Found: /password_reset/
+Internal Server Error: /login/
+Traceback (most recent call last):
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\views\decorators\debug.py", line 143, in sensitive_post_parameters_wrapper
+    return view(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\utils\decorators.py", line 188, in _view_wrapper
+    result = _process_exception(request, e)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\utils\decorators.py", line 186, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\utils\decorators.py", line 48, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\views\decorators\cache.py", line 80, in _view_wrapper
+    response = view_func(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\contrib\auth\views.py", line 88, in dispatch
+    return super().dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\views\generic\edit.py", line 150, in post
+    if form.is_valid():
+       ^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\forms\forms.py", line 197, in is_valid
+    return self.is_bound and not self.errors
+                                 ^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\forms\forms.py", line 192, in errors
+    self.full_clean()
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\forms\forms.py", line 328, in full_clean
+    self._clean_form()
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\forms\forms.py", line 349, in _clean_form
+    cleaned_data = self.clean()
+                   ^^^^^^^^^^^^
+  File "C:\Projects\Django-Personal-Assistant\DPA\users\views.py", line 55, in clean
+    self.user_cache = authenticate(username=username, password=password)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\views\decorators\debug.py", line 75, in sensitive_variables_wrapper
+    return func(*func_args, **func_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\contrib\auth\__init__.py", line 79, in authenticate
+    user = backend.authenticate(request, **credentials)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\contrib\auth\backends.py", line 42, in authenticate
+    user = UserModel._default_manager.get_by_natural_key(username)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\contrib\auth\base_user.py", line 56, in get_by_natural_key
+    return self.get(**{self.model.USERNAME_FIELD: username})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\query.py", line 645, in get
+    num = len(clone)
+          ^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\query.py", line 382, in __len__
+    self._fetch_all()
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\query.py", line 1928, in _fetch_all
+    self._result_cache = list(self._iterable_class(self))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\query.py", line 91, in __iter__
+    results = compiler.execute_sql(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\sql\compiler.py", line 1549, in execute_sql
+    sql, params = self.as_sql()
+                  ^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\sql\compiler.py", line 736, in as_sql
+    extra_select, order_by, group_by = self.pre_sql_setup(
+                                       ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\sql\compiler.py", line 84, in pre_sql_setup
+    self.setup_query(with_col_aliases=with_col_aliases)
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\sql\compiler.py", line 73, in setup_query
+    self.select, self.klass_info, self.annotation_col_map = self.get_select(
+                                                            ^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\sql\compiler.py", line 296, in get_select
+    sql, params = self.compile(col)
+                  ^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\sql\compiler.py", line 546, in compile
+    sql, params = node.as_sql(self, self.connection)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\expressions.py", line 1180, in as_sql
+    sql = ".".join(map(compiler.quote_name_unless_alias, identifiers))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\models\sql\compiler.py", line 537, in quote_name_unless_alias
+    r = self.connection.ops.quote_name(name)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\artur\AppData\Local\pypoetry\Cache\virtualenvs\assistant-fpV7ggtE-py3.12\Lib\site-packages\django\db\backends\dummy\base.py", line 20, in complain
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: settings.DATABASES is improperly configured. Please supply the ENGINE value. Check settings documentation for more details.
