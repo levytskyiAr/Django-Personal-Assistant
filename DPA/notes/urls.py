@@ -1,13 +1,12 @@
 from django.urls import path
 from . import views
 
+app_name = 'notes'
+
 urlpatterns = [
-    path('', views.main, name='main'),
-    path('detail/<int:note_id>/', views.detail, name='detail'),
-    path('note/', views.note, name='note'),
-    path('tag/', views.tag, name='tag'),
-    path('done/<int:note_id>/', views.set_done, name='set_done'),
+    path('notes/', views.NoteListView.as_view(), name='notes'),
+    path('notes/create_note/', views.create_note, name='create_note'),
+    path('notes/edit_note/<int:note_id>/', views.EditNoteView.as_view(), name='edit_note'),
     path('delete/<int:note_id>/', views.delete_note, name='delete_note'),
     path('search_note/', views.search_note, name='search_note'),
-    path('notes/<int:note_id>/edit/', views.edit_note, name='edit_note'),
 ]

@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'files.apps.FilesConfig',
     'background_task',
     'users',
-    'contacts'
+    'contacts',
+    'notes'
 ]
 
 MIDDLEWARE = [
