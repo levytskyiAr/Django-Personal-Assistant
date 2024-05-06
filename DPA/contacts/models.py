@@ -7,7 +7,7 @@ class Contact(models.Model):
     last_name = models.CharField(max_length=255)
     phone = models.CharField(max_length=13)
     email = models.EmailField()
-    address = models.CharField(max_length=255)
+    address = models.CharField(max_length=255, null=True)
     birthday = models.DateField()
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='auth_user')
 
