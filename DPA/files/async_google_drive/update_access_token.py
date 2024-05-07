@@ -1,23 +1,20 @@
-
+#!/usr/bin/python3.7
 
 import sys
 import webbrowser
-import json
 
 from aiohttp.web import RouteTableDef, Application, run_app, Response, json_response, HTTPFound
 
 from aiogoogle import Aiogoogle
 from aiogoogle.auth.utils import create_secret
 
-
 try:
     import yaml
-except:  # noqa: E722  bare-except
+except:
     print('couldn\'t import yaml. Install "pyyaml" first')
     sys.exit(-1)
 
-sys.path.append("../")
-
+sys.path.append("../..")
 
 try:
     with open("keys.yaml", "r") as stream:
@@ -33,20 +30,13 @@ CLIENT_CREDS = {
     "scopes": config["client_creds"]["scopes"],
     "redirect_uri": "http://localhost:5000/callback/aiogoogle",
 }
-state = create_secret()  # Shouldn't be a global hardcoded variable.
-
+state = create_secret()
 
 LOCAL_ADDRESS = "localhost"
 LOCAL_PORT = 5000
 
 routes = RouteTableDef()
 aiogoogle = Aiogoogle(client_creds=CLIENT_CREDS)
-
-# ----------------------------------------#
-#                                        #
-# **Step A (Check OAuth2 figure above)** #
-#                                        #
-# ----------------------------------------#
 
 
 @routes.get("/authorize")
@@ -66,25 +56,6 @@ def authorize(request):
         return Response(text="Client doesn't have enough info for Oauth2", status=500)
 
 
-# ----------------------------------------------#
-#                                              #
-# **Step B (Check OAuth2 figure above)**       #
-#                                              #
-# ----------------------------------------------#
-# NOTE:                                        #
-#  you should now be authorizing your app @    #
-#   https://accounts.google.com/o/oauth2/      #
-# ----------------------------------------------#
-
-# ----------------------------------------------#
-#                                              #
-# **Step C, D & E (Check OAuth2 figure above)**#
-#                                              #
-# ----------------------------------------------#
-
-# Step C
-# Google should redirect current_user to
-# this endpoint with a grant code
 @routes.get("/callback/aiogoogle")
 async def callback(request):
     if request.query.get("error"):
@@ -95,20 +66,27 @@ async def callback(request):
         return json_response(error)
     elif request.query.get("code"):
         returned_state = request.query["state"]
-        # Check state
+
         if returned_state != state:
             return Response(text="NO", status=500)
-        # Step D & E (D send grant code, E receive token info)
+
         full_user_creds = await aiogoogle.oauth2.build_user_creds(
             grant=request.query.get("code"), client_creds=CLIENT_CREDS
         )
-        with open('user_creds.json', 'w') as fd:
-            json.dump(full_user_creds, fd)
+        with open('keys.yaml', 'r') as file:
+            keys = yaml.safe_load(file)
 
+        keys['user_creds'] = {
+            'email': 'barsujkoanatoliy@gmail.com',
+            'access_token': full_user_creds['access_token'],
+            'refresh_token': full_user_creds['refresh_token'],
+            'expires_at': full_user_creds['expires_at']}
 
-        return json_response(full_user_creds)
+        with open('keys.yaml', 'w') as file:
+            yaml.dump(keys, file)
+
+        return Response(text='access_token has been updated')
     else:
-        # Should either receive a code or an error
         return Response(text="Something's probably wrong with your callback", status=400)
 
 

@@ -13,7 +13,6 @@ import os
 from pathlib import Path
 import environ
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'files.apps.FilesConfig',
     'django_redis',
-    'background_task',
     'users',
     'contacts',
     'notes'
@@ -169,3 +167,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # DATABASE_ROUTERS = ['contacts.routers.DatabaseRouter']
+# Add background task to update access token for Google Drive
+CRONJOBS = [
+    ('*/6 * * * *', 'myapp.cron.get_access_token')  # Запуск кожні 6 днів
+]

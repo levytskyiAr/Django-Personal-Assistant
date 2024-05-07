@@ -4,27 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e490773-6d45-4eb5-9fd1-c4618dfa9ae9" name="Changes" comment="bm">
-      <change afterPath="$PROJECT_DIR$/DPA/files/async_google_drive/authentification_script/user_creds.json" afterDir="false" />
+    <list default="true" id="8e490773-6d45-4eb5-9fd1-c4618dfa9ae9" name="Changes" comment="add redis cache and sorting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/DPA/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/DPA/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/contacts/static/contacts/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/contacts/static/contacts/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/async_google_drive/client_secrets.json" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/async_google_drive/authentification_script/client_secrets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/async_google_drive/get_authorization_url.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/async_google_drive/helpers.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/async_google_drive/helpers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/async_google_drive/keys.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/async_google_drive/oauth2.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/async_google_drive/user_creds.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/async_show_files_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/templates/files/async_show_files_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/base_for_files.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/templates/files/base_for_files.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/documents.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/templates/files/documents.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/images.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/templates/files/images.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/other.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/templates/files/other.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/video.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/templates/files/videos.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp/videoplayback.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp/Як працювати з (GitHub).txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
     </list>
@@ -70,58 +51,41 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Python.django_redis.executor": "Run",
-    "Python.django_redis_example.executor": "Run",
-    "Python.oauth2.executor": "Run",
-    "Python.redis_connection.executor": "Run",
-    "Python.start_to_ get_creds.executor": "Run",
-    "Python.tests.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "async__cloud",
-    "last_opened_file_path": "C:/Users/RollPy/Documents/GitHub/Django-Personal-Assistant/DPA/files/async_google_drive/aiogoogle/examples/auth",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Python.django_redis.executor&quot;: &quot;Run&quot;,
+    &quot;Python.django_redis_example.executor&quot;: &quot;Run&quot;,
+    &quot;Python.get_access_token (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.oauth2.executor&quot;: &quot;Run&quot;,
+    &quot;Python.redis_connection.executor&quot;: &quot;Run&quot;,
+    &quot;Python.start_to_ get_creds.executor&quot;: &quot;Run&quot;,
+    &quot;Python.tasks (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
+    &quot;Python.update_access_token.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;async__cloud&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/RollPy/Documents/GitHub/Django-Personal-Assistant/DPA/files&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\async_google_drive\aiogoogle\examples\auth" />
       <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files" />
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\async_google_drive" />
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\async_google_drive\aiogoogle\examples\auth" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files" />
+      <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\async_google_drive" />
       <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\async_google_drive\authentification_script" />
       <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\templates\files" />
       <recent name="D:\Python\GoIT\Module 2\Team_Project\DPA\users\templates\users" />
-      <recent name="D:\Python\GoIT\Module 2\Team_Project\DPA\users\templates" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.start_to_ get_creds">
-    <configuration name="django_redis_example" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Team_Project" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPA/files/redis_service" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPA/files/redis_service/django_redis_example.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.update_access_token">
     <configuration name="oauth2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Team_Project" />
       <option name="ENV_FILES" value="" />
@@ -166,7 +130,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="start_to_ get_creds" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="task" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Team_Project" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -179,7 +143,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPA/files/async_google_drive/authentification_script/start_to_ get_creds.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\task.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -188,7 +152,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="tasks (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Team_Project" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -201,7 +165,51 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPA/files/tests.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPA/files/tasks.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="tasks" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Team_Project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPA/files/async_google_drive/authentification_script" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\tasks.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="update_access_token" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Team_Project" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DPA/files/async_google_drive" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DPA/files/async_google_drive/update_access_token.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -212,11 +220,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.start_to_ get_creds" />
+        <item itemvalue="Python.update_access_token" />
+        <item itemvalue="Python.tasks (1)" />
+        <item itemvalue="Python.task" />
+        <item itemvalue="Python.tasks" />
         <item itemvalue="Python.oauth2" />
-        <item itemvalue="Python.redis_connection" />
-        <item itemvalue="Python.django_redis_example" />
-        <item itemvalue="Python.tests" />
       </list>
     </recent_temporary>
   </component>
@@ -252,12 +260,29 @@
       <option name="project" value="LOCAL" />
       <updated>1714977495063</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add redis cache and sorting">
+      <option name="closed" value="true" />
+      <created>1715019845459</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1715019845459</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add redis cache and sorting">
+      <option name="closed" value="true" />
+      <created>1715019908412</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1715019908412</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="as" />
     <MESSAGE value="bm" />
-    <option name="LAST_COMMIT_MESSAGE" value="bm" />
+    <MESSAGE value="add redis cache and sorting" />
+    <option name="LAST_COMMIT_MESSAGE" value="add redis cache and sorting" />
   </component>
 </project>
