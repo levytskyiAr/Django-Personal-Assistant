@@ -13,12 +13,13 @@ import os
 from pathlib import Path
 import environ
 from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-env = environ.Env()
-environ.Env.read_env(BASE_DIR / '.env')
+# env = environ.Env()
+# environ.Env.read_env(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -97,7 +98,7 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://:9iCfgJkMwr4tbLcIhMxi6HZYAY7fwle8@redis-14438.c304.europe-west1-2.gce.redns.redis-cloud.com:14438/dpa',
+        'LOCATION': os.getenv('REDIS'),
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
