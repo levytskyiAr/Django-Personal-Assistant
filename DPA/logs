@@ -1399,3 +1399,4 @@ Traceback (most recent call last):
 django.db.utils.OperationalError: connection to server at "dpg-cop8gr0cmk4c739q4v60-a.frankfurt-postgres.render.com" (3.120.236.187), port 5432 failed: SSL connection has been closed unexpectedly
 
 Not Found: /favicon.ico
+Not Found: /favicon.ico

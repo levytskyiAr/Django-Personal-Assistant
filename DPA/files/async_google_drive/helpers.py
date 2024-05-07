@@ -1,35 +1,26 @@
 import sys
-import yaml
-
-sys.path.append("../..")
+import os
 
 from aiogoogle.auth.creds import (
     UserCreds,
     ClientCreds,
-    ApiKey,
 )
+from dotenv import load_dotenv
 
+load_dotenv()
+sys.path.append("../..")
 
-try:
-    with open('files/async_google_drive/keys.yaml', "r") as stream:
-        config = yaml.load(stream, Loader=yaml.FullLoader)
-except Exception as e:
-    print("Rename keys.yaml to keys.yaml")
-    raise e
-
-email = config["user_creds"]["email"]
+email = os.getenv('EMAIL')
 
 user_creds = UserCreds(
-    access_token=config["user_creds"]["access_token"],
-    refresh_token=config["user_creds"]["refresh_token"],
-    expires_at=config["user_creds"]["expires_at"] or None,
+    access_token=os.getenv('ACCESS_TOKEN'),
+    refresh_token=os.getenv('REFRESH_TOKEN'),
+    expires_at=os.getenv('EXPIRES_AT') or None,
 )
-
-api_key = ApiKey(config["api_key"])
 
 client_creds = ClientCreds(
-    client_id=config["client_creds"]["client_id"],
-    client_secret=config["client_creds"]["client_secret"],
-    scopes=config["client_creds"]["scopes"],
+    client_id=os.getenv('CLIENT_ID'),
+    client_secret=os.getenv('CLIENT_SECRETS'),
+    scopes=['https://www.googleapis.com/auth/drive.file',
+            'https://www.googleapis.com/auth/drive.install', 'email']
 )
-

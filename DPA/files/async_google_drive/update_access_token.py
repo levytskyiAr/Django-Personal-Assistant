@@ -1,5 +1,5 @@
 #!/usr/bin/python3.7
-
+import os
 import sys
 import webbrowser
 
@@ -7,27 +7,17 @@ from aiohttp.web import RouteTableDef, Application, run_app, Response, json_resp
 
 from aiogoogle import Aiogoogle
 from aiogoogle.auth.utils import create_secret
-
-try:
-    import yaml
-except:
-    print('couldn\'t import yaml. Install "pyyaml" first')
-    sys.exit(-1)
+from dotenv import dotenv_values, set_key, load_dotenv
+load_dotenv()
 
 sys.path.append("../..")
 
-try:
-    with open("keys.yaml", "r") as stream:
-        config = yaml.load(stream, Loader=yaml.FullLoader)
-except Exception as e:
-    print("Rename _keys.yaml to keys.yaml")
-    raise e
-
-EMAIL = config["user_creds"]["email"]
+EMAIL = os.getenv('EMAIL')
 CLIENT_CREDS = {
-    "client_id": config["client_creds"]["client_id"],
-    "client_secret": config["client_creds"]["client_secret"],
-    "scopes": config["client_creds"]["scopes"],
+    "client_id": os.getenv('CLIENT_ID'),
+    "client_secret": os.getenv('CLIENT_SECRETS'),
+    "scopes": ['https://www.googleapis.com/auth/drive.file',
+               'https://www.googleapis.com/auth/drive.install', 'email'],
     "redirect_uri": "http://localhost:5000/callback/aiogoogle",
 }
 state = create_secret()
@@ -73,17 +63,19 @@ async def callback(request):
         full_user_creds = await aiogoogle.oauth2.build_user_creds(
             grant=request.query.get("code"), client_creds=CLIENT_CREDS
         )
-        with open('keys.yaml', 'r') as file:
-            keys = yaml.safe_load(file)
+        config = dotenv_values("../../.env")
+        new_data = {
+            'EMAIL': 'barsujkoanatoliy@gmail.com',
+            'ACCESS_TOKEN': full_user_creds['access_token'],
+            'REFRESH_TOKEN': full_user_creds['refresh_token'],
+            'EXPIRES_AT': full_user_creds['expires_at'],
+        }
 
-        keys['user_creds'] = {
-            'email': 'barsujkoanatoliy@gmail.com',
-            'access_token': full_user_creds['access_token'],
-            'refresh_token': full_user_creds['refresh_token'],
-            'expires_at': full_user_creds['expires_at']}
-
-        with open('keys.yaml', 'w') as file:
-            yaml.dump(keys, file)
+        for key, value in new_data.items():
+            if key in config:
+                set_key("../../.env", key, value)
+            else:
+                set_key("../../.env", key, value, quote_mode='never')
 
         return Response(text='access_token has been updated')
     else:
