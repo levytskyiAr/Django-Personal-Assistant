@@ -15,3 +15,6 @@ class LoginForm(AuthenticationForm):
     class Meta:
         model = User
         fields = ['username', 'password']
+
+class SearchForm(forms.Form):
+    keyword = forms.CharField(label='Keyword', max_length=100)  
