@@ -3,14 +3,22 @@ import os
 from django.contrib.auth.models import User
 from django.db import transaction
 from django.shortcuts import render, redirect
-from django.http import FileResponse, HttpResponse
+from django.http import FileResponse
 from aiogoogle import Aiogoogle
-from asgiref.sync import sync_to_async, async_to_sync
+from asgiref.sync import async_to_sync, sync_to_async
+from django.core.cache import cache
 
 from .async_google_drive.helpers import user_creds, client_creds
-import aiogoogle
 from .forms import UploadFileForm
 from .models import UserFolderGoogleDrive
+
+TEMP = f'media/uploads/temp'
+
+
+def get_cache_data(request):
+    data = async_to_sync(get_file_list_from_drive)(get_folder_id_by_user(request.user))
+    cache.set(request.user.id, data, timeout=3600)
+    return data
 
 
 def get_folder_id_by_user(user: User) -> str:
@@ -27,13 +35,14 @@ def get_folder_id_by_user(user: User) -> str:
 
 
 def get_filelist_from_drive(request):
-    documents, videos, images, other = async_to_sync(get_file_list_from_drive)(get_folder_id_by_user(request.user))
-    return render(request, 'files/async_show_files_list.html', {
-        'documents': documents,
-        'videos': videos,
-        'images': images,
-        'other': other
-    })
+    data = cache.get(request.user.id)
+    if not data:
+        data = get_cache_data(request)
+    return render(request, 'files/base_for_files.html',
+                  {'documents': data['documents'],
+                   'images': data['images'], 'videos': data['videos'],
+                   'other': data['other'], 'user_id': request.user.id
+                   })
 
 
 async def get_file_list_from_drive(folder_id):
@@ -44,13 +53,12 @@ async def get_file_list_from_drive(folder_id):
 
     async with Aiogoogle(user_creds=user_creds, client_creds=client_creds) as aiogoogle:
         drive_v3 = await aiogoogle.discover("drive", "v3")
-        # Use the aiogoogle client to list files
         res = await aiogoogle.as_user(drive_v3.files.list(q=f"'{folder_id}' in parents and trashed=false"),
                                       full_res=True)
+
         async for page in res:
             for file in page.get("files"):
                 mime_type = file.get("mimeType")
-                file_info = [file.get('name'), file.get('id')]
                 match mime_type.split('/')[0]:
                     case 'application' | 'text':
                         documents[file.get('name')] = file.get('id')
@@ -60,8 +68,13 @@ async def get_file_list_from_drive(folder_id):
                         images[file.get('name')] = file.get('id')
                     case _:  # Catch all other files
                         other[file.get('name')] = file.get('id')
-
-    return documents, videos, images, other
+    data = {
+        'documents': documents,
+        'videos': videos,
+        'images': images,
+        'other': other
+    }
+    return data
 
 
 async def open_file(request, file_id):
@@ -82,7 +95,6 @@ async def download_file(request, file_id):
         drive_v3.files.get(fileId=file_id, download_file=path_to_temporary_file, alt='media'), )
 
     response = FileResponse(open(path_to_temporary_file, 'rb'), as_attachment=True)
-
     return response
 
 
@@ -90,53 +102,36 @@ async def create_file_with_correct_name(file_id):
     async with Aiogoogle(user_creds=user_creds, client_creds=client_creds) as aiogoogle:
         drive_v3 = await aiogoogle.discover("drive", "v3")
         res = await aiogoogle.as_user(drive_v3.files.get(fileId=file_id))
-        path = f'media/uploads/temp_upload/{res['name']}'
+        path = os.path.join(TEMP, res['name'])
         fd = os.open(path, os.O_CREAT, 0o666)
         os.close(fd)
         return path
 
 
 def clean_temp_folder():
-    folder_path = 'media/upload/temp_download'
-    for filename in os.listdir(folder_path):
-        file_path = os.path.join(folder_path, filename)
+    for filename in os.listdir(TEMP):
+        file_path = os.path.join(TEMP, filename)
         os.unlink(file_path)
-
-
-def authorize(request):
-    uri = aiogoogle.oauth2.authorization_url(
-        client_creds={
-            'client_id': '222206179817-7oevt5trglkssvufbv58f7kf1ko4qstr.apps.googleusercontent.com',
-            'client_secret': '"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"',
-            'scopes': [
-                'https://www.googleapis.com/auth/drive.file',
-                'email',
-                'https://www.googleapis.com/auth/drive.install'
-            ],
-            'redirect_uri': 'http://localhost:5000/callback/aiogoogle'
-        },
-    )
-    return redirect(uri)
 
 
 def upload_file(request):
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         uploaded_file = request.FILES['file']
-        temp_folder = f'media/uploads/temp_upload/{uploaded_file.name}'
+        temp_file = os.path.join(TEMP, uploaded_file.name)
         folder_id = get_folder_id_by_user(request.user)
 
         if form.is_valid():
-            with open(temp_folder, 'wb+') as destination:
+            with open(temp_file, 'wb+') as destination:
                 for chunk in uploaded_file.chunks():
                     destination.write(chunk)
-            async_to_sync(upload_file_to_drive)(temp_folder, uploaded_file.name, folder_id=folder_id)
-            # os.remove(temp_folder)
+            async_to_sync(upload_file_to_drive)(temp_file, uploaded_file.name, folder_id=folder_id)
+            get_cache_data(request)
+            os.remove(temp_file)
             return redirect('files:listfiles')
     else:
         form = UploadFileForm()
     return render(request, 'files/upload_form.html', {'form': form})
-
 
 
 async def upload_file_to_drive(full_path, new_name, folder_id):
@@ -147,21 +142,11 @@ async def upload_file_to_drive(full_path, new_name, folder_id):
             upload_file=full_path,
             fields="id",
             json={"name": new_name,
-                  "parents": [folder_id]}
-        )
+                  "parents": [folder_id]})
 
-        # req.upload_file_content_type = mimetypes.guess_type(full_path)[0]
-
-        # Upload file
         upload_res = await aiogoogle.as_user(req)
         print(f"folder id: {folder_id}")
         print("Uploaded {} successfully.\nFile ID: {}".format(full_path, upload_res['id']))
-        # file_id = upload_res["id"]
-        # # Rename uploaded file
-        # await aiogoogle.as_user(
-        #     drive_v3.files.update(fileId=file_id, json={"name": new_name})
-        # )
-        # print("Renamed {} to {} successfully!".format(full_path, new_name))
 
 
 async def create_folder_on_drive(folder_name):
@@ -169,13 +154,13 @@ async def create_folder_on_drive(folder_name):
 
         drive_v3 = await aiogoogle.discover("drive", "v3")
         query = "name = '{}' and mimeType = 'application/vnd.google-apps.folder and trash = false'".format(folder_name)
-        existing_folders = await aiogoogle.as_user(drive_v3.files.list(q=query))
-        print(f"existing_folder: {existing_folders}")
+        existing_folder = await aiogoogle.as_user(drive_v3.files.list(q=query))
+        print(f"existing_folder: {existing_folder}")
 
-        if existing_folders['files']:
-            print(f'existing folder files:{existing_folders['files']}')
-            print(f"return existing folder {existing_folders['files'][0]['id']}")
-            return existing_folders['files'][0]['id']
+        if existing_folder['files']:
+            print(f'existing folder files:{existing_folder['files']}')
+            print(f"return existing folder {existing_folder['files'][0]['id']}")
+            return existing_folder['files'][0]['id']
 
         else:
             req = drive_v3.files.create(
@@ -188,3 +173,45 @@ async def create_folder_on_drive(folder_name):
             print(folder_res)
             print("Created folder successfully.\nFolder ID: {}".format(folder_res['id']))
             return folder_res['id']
+
+
+async def delete_file(request, file_id, template_name):
+
+    async with Aiogoogle(user_creds=user_creds, client_creds=client_creds) as aiogoogle:
+        drive_v3 = await aiogoogle.discover('drive', 'v3')
+        await aiogoogle.as_user(
+            drive_v3.files.delete(fileId=file_id)
+        )
+    await sync_to_async(get_cache_data)(request)
+
+    match template_name:
+        case 'images':
+            return_template = 'files:show_images'
+        case 'documents':
+            return_template = 'files:show_documents'
+        case 'videos':
+            return_template = 'files:show_videos'
+        case 'other':
+            return_template = 'files:show_other'
+    print(template_name)
+    return redirect(return_template)
+
+
+def show_images(request):
+    data = get_cache_data(request)
+    return render(request, 'files/images.html', context={'images': data['images']})
+
+
+def show_documents(request):
+    data = get_cache_data(request)
+    return render(request, 'files/documents.html', context={'documents': data['documents']})
+
+
+def show_videos(request):
+    data = get_cache_data(request)
+    return render(request, 'files/videos.html', context={'videos': data['videos']})
+
+
+def show_other(request):
+    data = get_cache_data(request)
+    return render(request, 'files/other.html', context={'other': data['other']})

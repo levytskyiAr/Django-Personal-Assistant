@@ -11,7 +11,7 @@ class UploadFileForm(forms.Form):
 
     def clean_file(self):
         file = self.cleaned_data.get('file', False)
-        max_size = 20 * 1024 * 1024  # 20MB in bytes
+        max_size = 25 * 1024 * 1024  # 20MB in bytes
 
         if file:
             if file.size > max_size:

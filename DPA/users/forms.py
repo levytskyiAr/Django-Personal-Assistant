@@ -5,7 +5,10 @@ from django.contrib.auth.models import User
 
 class RegisterForm(UserCreationForm):
     email = forms.CharField(max_length=100, required=True, widget=forms.TextInput())
-
+   
+    class Meta:
+        model = User
+        fields = ['username', 'email']
 
 class LoginForm(AuthenticationForm):
 

@@ -67,3 +67,4 @@ class EditNoteView(View):
             form.save()
             return redirect('notes:notes')
         return render(request, 'notes/edit_note.html', {'form': form, 'note_id': note_id})
+    
