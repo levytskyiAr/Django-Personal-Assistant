@@ -1,0 +1,11 @@
+you_personal_assistant/
+|-- modules/
+|   |-- address_book.py
+|   |-- banch.py
+|   |-- data.json
+|   |-- file_manager.py
+|   |-- notes.py
+|   |-- read.md
+|-- README.md
+|-- console_interface.py
+|-- LICENSE
