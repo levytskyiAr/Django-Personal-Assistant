@@ -6,17 +6,15 @@ from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.views import View
 from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout
-
 from .forms import RegisterForm
+from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 
 
 def index(request):
     return render(request, 'users/index.html')
 
-
 def profile(request):
     return render(request, 'users/profile.html')
-
 
 class RegisterView(View):
     template_name = 'users/register.html'
@@ -88,3 +86,22 @@ def change_password(request):
 def logout_view(request):
     logout(request)
     return redirect('/')
+
+
+class CustomPasswordResetView(PasswordResetView):
+    template_name = 'users/reset_password.html'
+    email_template_name = 'password_reset_email.html'
+    subject_template_name = 'password_reset_subject.txt'
+    success_url = 'reset_password_sent'
+
+
+class CustomPasswordResetDoneView(PasswordResetDoneView):
+    template_name = 'users/password_reset_done.html'
+
+
+class CustomPasswordResetConfirmView(PasswordResetConfirmView):
+    template_name = 'users/password_reset_confirm.html'
+
+
+class CustomPasswordResetCompleteView(PasswordResetCompleteView):
+    template_name = 'users/password_reset_complete.html'
