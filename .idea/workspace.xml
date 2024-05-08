@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e490773-6d45-4eb5-9fd1-c4618dfa9ae9" name="Changes" comment="clean">
+    <list default="true" id="8e490773-6d45-4eb5-9fd1-c4618dfa9ae9" name="Changes" comment="'cleaning'">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/.env" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/DPA/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/DPA/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/DPA/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/DPA/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/upload_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/templates/files/upload_form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/logs" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/logs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/notes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/notes/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -288,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715109629705</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="'cleaning'">
+      <option name="closed" value="true" />
+      <created>1715194976175</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1715194976175</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -309,6 +312,7 @@
     <MESSAGE value="add auth script" />
     <MESSAGE value="add redis creds to .env" />
     <MESSAGE value="clean" />
-    <option name="LAST_COMMIT_MESSAGE" value="clean" />
+    <MESSAGE value="'cleaning'" />
+    <option name="LAST_COMMIT_MESSAGE" value="'cleaning'" />
   </component>
 </project>
