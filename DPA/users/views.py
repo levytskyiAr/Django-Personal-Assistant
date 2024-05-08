@@ -1,3 +1,4 @@
+import requests
 from django import forms
 from django.contrib.auth import authenticate, update_session_auth_hash
 from django.contrib import messages
@@ -8,10 +9,8 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth import logout
 from .forms import RegisterForm
 from django.contrib.auth.views import PasswordResetView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
+from .bbc_news_scraper import get_bbc_ukrainian_news
 
-
-def index(request):
-    return render(request, 'users/index.html')
 
 def profile(request):
     return render(request, 'users/profile.html')
@@ -105,3 +104,19 @@ class CustomPasswordResetConfirmView(PasswordResetConfirmView):
 
 class CustomPasswordResetCompleteView(PasswordResetCompleteView):
     template_name = 'users/password_reset_complete.html'
+
+
+def index(request):
+    if request.method == 'GET':
+        search_query = request.GET.get('search_query', '')
+
+        rss_url = "https://feeds.bbci.co.uk/ukrainian/rss.xml"
+        news_list = get_bbc_ukrainian_news(rss_url)
+
+        if search_query:
+            news_list = [news_item for news_item in news_list if 'title' in news_item and search_query.lower() in news_item['title'].lower()]
+
+        return render(request, 'users/index.html', {'news_list': news_list})
+    else:
+        return render(request, 'users/index.html')
+
