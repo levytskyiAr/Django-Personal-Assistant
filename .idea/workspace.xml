@@ -4,21 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e490773-6d45-4eb5-9fd1-c4618dfa9ae9" name="Changes" comment="m">
+    <list default="true" id="8e490773-6d45-4eb5-9fd1-c4618dfa9ae9" name="Changes" comment="clean">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPA/.env" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPA/DPA/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/DPA/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPA/DPA/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/DPA/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/contacts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/contacts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/async_google_drive/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/files/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DPA/files/templates/files/upload_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/files/templates/files/upload_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DPA/logs" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/logs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp/to folder.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/media/uploads/temp_upload/photo_2023-12-15_23-35-08.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DPA/notes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/notes/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DPA/users/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DPA/users/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/poetry.lock" beforeDir="false" afterPath="$PROJECT_DIR$/poetry.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,12 +291,24 @@
     <option name="localTasksCounter" value="6" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="as" />
     <MESSAGE value="bm" />
     <MESSAGE value="add redis cache and sorting" />
     <MESSAGE value="add auth script" />
     <MESSAGE value="add redis creds to .env" />
-    <option name="LAST_COMMIT_MESSAGE" value="add redis creds to .env" />
+    <MESSAGE value="clean" />
+    <option name="LAST_COMMIT_MESSAGE" value="clean" />
   </component>
 </project>

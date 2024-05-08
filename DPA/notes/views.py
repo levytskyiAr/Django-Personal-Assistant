@@ -8,7 +8,7 @@ from django.http import JsonResponse
 from django.views import View
 
 
- @login_required
+@login_required
 def search_note(request):
     if request.method == "GET":
         query = request.GET.get("q")
@@ -20,6 +20,7 @@ def search_note(request):
     return render(
         request, "notes/search_note.html", {"notes": notes}
     )
+
 
 @login_required
 def create_note(request):
@@ -36,6 +37,7 @@ def create_note(request):
         form = NoteForm()
     return render(request, 'notes/create_note.html', {'form': form})
 
+
 class NoteListView(ListView):
     model = Note
     template_name = 'notes/notes.html'
@@ -43,14 +45,14 @@ class NoteListView(ListView):
 
     def get_queryset(self):
         return Note.objects.filter(user=self.request.user)
-    
+
+
 def delete_note(request, note_id):
     if request.method == 'POST':
         notes = Note.objects.get(id=note_id)
         notes.delete()
         return redirect('notes:notes')
     return JsonResponse({'error': 'Invalid request method.'}, status=405)
-
 
 
 class EditNoteView(View):
@@ -66,4 +68,3 @@ class EditNoteView(View):
             form.save()
             return redirect('notes:notes')
         return render(request, 'notes/edit_note.html', {'form': form, 'note_id': note_id})
-    
