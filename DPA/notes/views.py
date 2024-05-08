@@ -8,7 +8,7 @@ from django.http import JsonResponse
 from django.views import View
 
 
-@login_required
+ @login_required
 def search_note(request):
     if request.method == "GET":
         query = request.GET.get("q")
@@ -20,7 +20,6 @@ def search_note(request):
     return render(
         request, "notes/search_note.html", {"notes": notes}
     )
-
 
 @login_required
 def create_note(request):

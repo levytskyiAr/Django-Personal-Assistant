@@ -24,4 +24,6 @@ urlpatterns = [
     path("", include("users.urls")),
     path("", include("contacts.urls")),
     path("", include("notes.urls")),
+    path(r'^docs/', include('sphinxdoc.urls')),
+
 ]

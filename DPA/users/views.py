@@ -13,8 +13,10 @@ from .forms import RegisterForm
 def index(request):
     return render(request, 'users/index.html')
 
+
 def profile(request):
     return render(request, 'users/profile.html')
+
 
 class RegisterView(View):
     template_name = 'users/register.html'
