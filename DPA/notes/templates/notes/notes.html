@@ -34,7 +34,22 @@
             <div class="container mt-3">
                 <div class="list-group">
                     <h1 class="text-center">Notes List</h1>
-                    <div class="row mt-3 d-flex justify-content-end my-custom-margin"><input class="form-control" id="myInput" type="text" placeholder="Search.."></div>
+                    <div class="row mt-3">
+                        <div class="col-md-11 mb-2">
+                            <input class="form-control" id="myInput" type="text" placeholder="Search">
+                        </div>
+                        <div class="col-md-1 d-flex justify-content-end">
+                            <div class="dropdown">
+                                <button class="btn btn-primary btn-md me-2" type="button" id="searchDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Sort
+                                </button>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="searchDropdown">
+                                    <li><a class="dropdown-item" href="#" onclick="changeSearchType('note')">Search by Note</a></li>
+                                    <li><a class="dropdown-item" href="#" onclick="changeSearchType('tags')">Search by Tags</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                     {% for note in notes %}
                         <div class="card">
                             <div class="d-flex justify-content-between">
@@ -103,6 +118,42 @@
             function closeModal() {
                 $('#myModal').modal('hide');
                 }
+        </script>
+        <script>
+            function changeSearchType(type) {
+                if (type === 'note') {
+                    $('#myInput').attr('placeholder', 'Search by Note');
+                } else if (type === 'tags') {
+                    $('#myInput').attr('placeholder', 'Search by Tags');
+                    var tagsFilter = $('#tagsInput').val().toLowerCase();
+                    $(".card").each(function() {
+                        var cardTags = $(this).find('.tags').text().toLowerCase();
+                        if (cardTags.includes(tagsFilter)) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+                }
+            }
+        </script>
+        <script>
+            function changeSearchType(type) {
+                if (type === 'note') {
+                    $('#myInput').attr('placeholder', 'Search by Note');
+                } else if (type === 'tags') {
+                    $('#myInput').attr('placeholder', 'Search by Tags');
+                    var tagsFilter = $('#tagsInput').val().toLowerCase();
+                    $(".card").each(function() {
+                        var cardTags = $(this).find('.tags').text().toLowerCase();
+                        if (cardTags.includes(tagsFilter)) {
+                            $(this).show();
+                        } else {
+                            $(this).hide();
+                        }
+                    });
+                }
+            }
         </script>
     </body>
 </html>
