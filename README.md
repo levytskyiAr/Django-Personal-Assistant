@@ -14,7 +14,8 @@ Frontend: HTML, CSS, JavaScript
 Backend: Django
 Database:PostgreSQL
 Authentication: Django Authentication System
-File Storage: Django File Storage
+File Storage:Google Drive Integration: Uses aiogoogle to integrate with Google Drive for file storage.
+Redis Caching: Implements Redis caching for caching heavy data.
 Installation
 Clone the repository: https://github.com/levytskyiAr/Django-Personal-Assistant.git
 Install dependencies: pip install -r requirements.txt
