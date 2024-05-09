@@ -176,14 +176,14 @@ def clean_temp_folder():
 @login_required
 def upload_file(request):
     """
-    A function to handle file upload. It processes the uploaded file, saves it temporarily,
+    A function to handle file uploads. It processes the uploaded file, saves it temporarily,
     validates the form, writes the file to disk, uploads it to a cloud drive asynchronously,
     retrieves cache data, and finally removes the temporary file.
     Parameters:
     - request: HttpRequest object containing the request data.
     Returns:
-    - Redirects to 'files:listfiles' URL upon successful file upload.
-    - Renders the upload form page with the form data for GET requests.
+    - Redirects to 'files:listfiles' URL upon successful file uploads.
+    - Renders the uploads form page with the form data for GET requests.
     """
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
@@ -211,7 +211,7 @@ async def upload_file_to_drive(full_path, new_name, folder_id):
     Uploads a file to Google Drive.
 
     Parameters:
-    - full_path (str): The full path of the file to upload.
+    - full_path (str): The full path of the file to uploads.
     - new_name (str): The new name to assign to the uploaded file.
     - folder_id (str): The ID of the folder in Google Drive where the file will be uploaded.
 
@@ -311,7 +311,7 @@ def show_images(request):
 @login_required
 def show_documents(request):
     """
-    Retrieve data from cache based on request and render documents.html with the retrieved data.
+    Retrieve data from cache based on request and render documents.html with   the retrieved data.
     :param request: The request object.
     :return: Rendered documents.html template with the documents context.
     """
