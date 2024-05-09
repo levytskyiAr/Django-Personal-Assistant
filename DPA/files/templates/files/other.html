@@ -36,6 +36,7 @@
 
   <h2>Other</h2>
   <ul class="list-unstyled">
+	<li><a href="{% url 'files:upload_file' %}" class="btn btn-success big-button">Upload</a></li>
 	{% for title, id in other.items %}
 	<li class="d-flex justify-content-between align-items-center my-2"
 		style="width: 100%; background-color: #F3F1B9; padding: 10px; box-sizing: border-box;">

@@ -1441,3 +1441,84 @@ Traceback (most recent call last):
                ^^^^^^^^
 NameError: name 'requests' is not defined
 
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /files/open/10AlkejTqlDTd2MU0B9adSLirzRl_fAiT/
+Traceback (most recent call last):
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+ValueError: The view files.views.open_file didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+Internal Server Error: /files/open/10AlkejTqlDTd2MU0B9adSLirzRl_fAiT/
+Traceback (most recent call last):
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+ValueError: The view files.views.open_file didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+Internal Server Error: /files/download/10AlkejTqlDTd2MU0B9adSLirzRl_fAiT/
+Traceback (most recent call last):
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+ValueError: The view files.views.download_file didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+Internal Server Error: /files/open/10AlkejTqlDTd2MU0B9adSLirzRl_fAiT/
+Traceback (most recent call last):
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+ValueError: The view files.views.open_file didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
+Internal Server Error: /files/open/10AlkejTqlDTd2MU0B9adSLirzRl_fAiT/
+Traceback (most recent call last):
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\asgiref\sync.py", line 254, in __call__
+    return call_result.result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\asgiref\sync.py", line 331, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\views.py", line 120, in open_file
+    path_to_temporary_file = await sync_to_async(create_file_with_correct_name)(file_id)
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\asgiref\sync.py", line 609, in sync_to_async
+    return SyncToAsync(
+           ^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\asgiref\sync.py", line 399, in __init__
+    raise TypeError("sync_to_async can only be applied to sync functions.")
+TypeError: sync_to_async can only be applied to sync functions.
+Not Found: /favicon.ico
+Internal Server Error: /files/delete/1QHwtquLHbwHmHv_XqVwbA-elJKkFmB0t/images
+Traceback (most recent call last):
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+ValueError: The view files.views.delete_file didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.

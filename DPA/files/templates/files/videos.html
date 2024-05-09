@@ -36,6 +36,7 @@
 
   <h2>Videos</h2>
   <ul class="list-unstyled">
+	<li><a href="{% url 'files:upload_file' %}" class="btn btn-success big-button">Upload</a></li>
 	{% for title, id in videos.items %}
 	<li class="d-flex justify-content-between align-items-center my-2"
 		style="width: 100%; background-color: #F3F1B9; padding: 10px; box-sizing: border-box;">
@@ -57,7 +58,7 @@
                                                 <p>Contact will be deleted. Are you sure?</p>
                                             </div>
                                             <div class="modal-footer">
-                                                <form id="deleteForm" method="post" action="{% url 'files:delete_file' id 'videos' %}">
+                                                <form id="deleteForm" method="post" action="{% url 'files:delete_file' id 'video' %}">
                                                     {% csrf_token %}
                                                     <button id="confirmDelete" type="submit" class="btn btn-danger">Yes</button>
                                                     <button type="button" class="btn btn-default" onclick="closeModal()">Cancel</button>

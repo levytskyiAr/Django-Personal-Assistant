@@ -36,6 +36,7 @@
 
   <h2>Images</h2>
   <ul class="list-unstyled">
+	<li><a href="{% url 'files:upload_file' %}" class="btn btn-success big-button">Upload</a></li>
 	{% for title, id in images.items %}
 	<li class="d-flex justify-content-between align-items-center my-2"
 		style="width: 100%; background-color: #F3F1B9; padding: 10px; box-sizing: border-box;">
@@ -51,20 +52,20 @@
 		</ul>
 	  </div>
 	  <div class="modal fade" id="myModal" role="dialog">
-                                    <div class="modal-dialog modal-sm">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <p>Contact will be deleted. Are you sure?</p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <form id="deleteForm" method="post" action="{% url 'files:delete_file' id 'images' %}">
-                                                    {% csrf_token %}
-                                                    <button id="confirmDelete" type="submit" class="btn btn-danger">Yes</button>
-                                                    <button type="button" class="btn btn-default" onclick="closeModal()">Cancel</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+		<div class="modal-dialog modal-sm">
+		  <div class="modal-content">
+			<div class="modal-body">
+			  <p>Contact will be deleted. Are you sure?</p>
+			</div>
+			<div class="modal-footer">
+			  <form id="deleteForm" method="post" action="{% url 'files:delete_file' id 'image' %}">
+				{% csrf_token %}
+				<button id="confirmDelete" type="submit" class="btn btn-danger">Yes</button>
+				<button type="button" class="btn btn-default" onclick="closeModal()">Cancel</button>
+			  </form>
+			</div>
+		  </div>
+		</div>
 	</li>
 	{% endfor %}
   </ul>
