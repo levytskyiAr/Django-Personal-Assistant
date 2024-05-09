@@ -45,7 +45,6 @@ def get_folder_id_by_user(user: User) -> str:
             folder_id = async_to_sync(create_folder_on_drive)(folder_name_for_drive)
             write_to_db.folder_drive_id = folder_id
             write_to_db.save()
-            print(write_to_db.folder_drive_id)
         return write_to_db.folder_drive_id
 
 
@@ -229,8 +228,6 @@ async def upload_file_to_drive(full_path, new_name, folder_id):
                   "parents": [folder_id]})
 
         upload_res = await aiogoogle.as_user(req)
-        print(f"folder id: {folder_id}")
-        print("Uploaded {} successfully.\nFile ID: {}".format(full_path, upload_res['id']))
 
 
 async def create_folder_on_drive(folder_name):
@@ -248,11 +245,8 @@ async def create_folder_on_drive(folder_name):
         drive_v3 = await aiogoogle.discover("drive", "v3")
         query = "name = '{}' and mimeType = 'application/vnd.google-apps.folder and trash = false'".format(folder_name)
         existing_folder = await aiogoogle.as_user(drive_v3.files.list(q=query))
-        print(f"existing_folder: {existing_folder}")
 
         if existing_folder['files']:
-            print(f'existing folder files:{existing_folder['files']}')
-            print(f"return existing folder {existing_folder['files'][0]['id']}")
             return existing_folder['files'][0]['id']
 
         else:
@@ -263,8 +257,6 @@ async def create_folder_on_drive(folder_name):
 
             # Execute the request
             folder_res = await aiogoogle.as_user(req)
-            print(folder_res)
-            print("Created folder successfully.\nFolder ID: {}".format(folder_res['id']))
             return folder_res['id']
 
 
@@ -293,7 +285,6 @@ async def delete_file(request, file_id, template_name):
 
 
 def choice_return_template(template_name):
-
     match template_name:
         case 'image':
             return_template = 'files:show_images'
