@@ -267,7 +267,7 @@ async def delete_file(request, file_id, template_name):
     Parameters:
     - request: The request object.
     - file_id: The id of the file to be deleted.
-    - template_name: The name of the template to determine the return_template.
+    - template_name: The name of  the  template to determine the return_template.
 
     Returns:
     - Redirects to the appropriate return_template based on the template_name.
