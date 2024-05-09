@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e490773-6d45-4eb5-9fd1-c4618dfa9ae9" name="Changes" comment="final version v2" />
+    <list default="true" id="8e490773-6d45-4eb5-9fd1-c4618dfa9ae9" name="Changes" comment="mn" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,26 +47,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Python.django_redis.executor&quot;: &quot;Run&quot;,
-    &quot;Python.django_redis_example.executor&quot;: &quot;Run&quot;,
-    &quot;Python.get_access_token (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.oauth2.executor&quot;: &quot;Run&quot;,
-    &quot;Python.redis_connection.executor&quot;: &quot;Run&quot;,
-    &quot;Python.start_to_ get_creds.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tasks (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.tests.executor&quot;: &quot;Run&quot;,
-    &quot;Python.update_access_token.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;async__cloud&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/RollPy/Documents/GitHub/Django-Personal-Assistant&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Python.django_redis.executor": "Run",
+    "Python.django_redis_example.executor": "Run",
+    "Python.get_access_token (1).executor": "Run",
+    "Python.oauth2.executor": "Run",
+    "Python.redis_connection.executor": "Run",
+    "Python.start_to_ get_creds.executor": "Run",
+    "Python.tasks (1).executor": "Run",
+    "Python.tests.executor": "Run",
+    "Python.update_access_token.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/RollPy/Documents/GitHub/Django-Personal-Assistant",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files" />
@@ -328,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715243745109</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="mn">
+      <option name="closed" value="true" />
+      <created>1715271967934</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1715271967934</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -353,6 +361,8 @@
     <MESSAGE value="'m'" />
     <MESSAGE value="final version" />
     <MESSAGE value="final version v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="final version v2" />
+    <MESSAGE value="Edit README" />
+    <MESSAGE value="mn" />
+    <option name="LAST_COMMIT_MESSAGE" value="mn" />
   </component>
 </project>
