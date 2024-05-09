@@ -18,4 +18,4 @@ class UploadFileForm(forms.Form):
                 raise forms.ValidationError("The file size exceeds the limit of 20MB.")
             return file
         else:
-            raise forms.ValidationError("Please select a file to upload.")
+            raise forms.ValidationError("Please select a file to uploads.")

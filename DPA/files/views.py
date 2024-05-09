@@ -1,4 +1,5 @@
 import os
+import mimetypes
 
 from django.contrib.auth.models import User
 from django.db import transaction
@@ -13,6 +14,7 @@ from .async_google_drive.helpers import user_creds, client_creds
 from .forms import UploadFileForm
 from .models import UserFolderGoogleDrive
 
+mimetypes.init()
 TEMP = f'media/uploads/temp'
 
 
@@ -43,7 +45,6 @@ def get_folder_id_by_user(user: User) -> str:
             folder_id = async_to_sync(create_folder_on_drive)(folder_name_for_drive)
             write_to_db.folder_drive_id = folder_id
             write_to_db.save()
-            print(write_to_db.folder_drive_id)
         return write_to_db.folder_drive_id
 
 
@@ -58,6 +59,7 @@ def get_filelist_from_drive(request):
     Returns:
     - Renders a template with the file list data for documents, images, videos, and other file types, along with the user ID
     """
+    clean_temp_folder()
     data = cache.get(request.user.id)
     if not data:
         data = get_cache_data(request)
@@ -108,7 +110,6 @@ async def get_file_list_from_drive(folder_id):
     return data
 
 
-@login_required
 async def open_file(request, file_id):
     """
     Asynchronously opens a file and returns a FileResponse.
@@ -127,7 +128,7 @@ async def open_file(request, file_id):
     return FileResponse(open(path_to_temporary_file, 'rb'))
 
 
-@login_required
+
 async def download_file(request, file_id):
     """
     Download a file from Google Drive using the provided file ID.
@@ -145,8 +146,7 @@ async def download_file(request, file_id):
     await aiogoogle.as_user(
         drive_v3.files.get(fileId=file_id, download_file=path_to_temporary_file, alt='media'), )
 
-    response = FileResponse(open(path_to_temporary_file, 'rb'), as_attachment=True)
-    return response
+    return FileResponse(open(path_to_temporary_file, 'rb'), as_attachment=True)
 
 
 async def create_file_with_correct_name(file_id):
@@ -177,18 +177,19 @@ def clean_temp_folder():
 @login_required
 def upload_file(request):
     """
-    A function to handle file upload. It processes the uploaded file, saves it temporarily,
+    A function to handle file uploads. It processes the uploaded file, saves it temporarily,
     validates the form, writes the file to disk, uploads it to a cloud drive asynchronously,
     retrieves cache data, and finally removes the temporary file.
     Parameters:
     - request: HttpRequest object containing the request data.
     Returns:
-    - Redirects to 'files:listfiles' URL upon successful file upload.
-    - Renders the upload form page with the form data for GET requests.
+    - Redirects to 'files:listfiles' URL upon successful file uploads.
+    - Renders the uploads form page with the form data for GET requests.
     """
     if request.method == 'POST':
         form = UploadFileForm(request.POST, request.FILES)
         uploaded_file = request.FILES['file']
+        mime_type, encoding = mimetypes.guess_type(uploaded_file.name)
         temp_file = os.path.join(TEMP, uploaded_file.name)
         folder_id = get_folder_id_by_user(request.user)
 
@@ -199,7 +200,8 @@ def upload_file(request):
             async_to_sync(upload_file_to_drive)(temp_file, uploaded_file.name, folder_id=folder_id)
             get_cache_data(request)
             os.remove(temp_file)
-            return redirect('files:listfiles')
+            return_template = choice_return_template(mime_type.split('/')[0])
+            return redirect(return_template)
     else:
         form = UploadFileForm()
     return render(request, 'files/upload_form.html', {'form': form})
@@ -210,7 +212,7 @@ async def upload_file_to_drive(full_path, new_name, folder_id):
     Uploads a file to Google Drive.
 
     Parameters:
-    - full_path (str): The full path of the file to upload.
+    - full_path (str): The full path of the file to uploads.
     - new_name (str): The new name to assign to the uploaded file.
     - folder_id (str): The ID of the folder in Google Drive where the file will be uploaded.
 
@@ -227,8 +229,6 @@ async def upload_file_to_drive(full_path, new_name, folder_id):
                   "parents": [folder_id]})
 
         upload_res = await aiogoogle.as_user(req)
-        print(f"folder id: {folder_id}")
-        print("Uploaded {} successfully.\nFile ID: {}".format(full_path, upload_res['id']))
 
 
 async def create_folder_on_drive(folder_name):
@@ -246,11 +246,8 @@ async def create_folder_on_drive(folder_name):
         drive_v3 = await aiogoogle.discover("drive", "v3")
         query = "name = '{}' and mimeType = 'application/vnd.google-apps.folder and trash = false'".format(folder_name)
         existing_folder = await aiogoogle.as_user(drive_v3.files.list(q=query))
-        print(f"existing_folder: {existing_folder}")
 
         if existing_folder['files']:
-            print(f'existing folder files:{existing_folder['files']}')
-            print(f"return existing folder {existing_folder['files'][0]['id']}")
             return existing_folder['files'][0]['id']
 
         else:
@@ -261,12 +258,10 @@ async def create_folder_on_drive(folder_name):
 
             # Execute the request
             folder_res = await aiogoogle.as_user(req)
-            print(folder_res)
-            print("Created folder successfully.\nFolder ID: {}".format(folder_res['id']))
             return folder_res['id']
 
 
-@login_required
+
 async def delete_file(request, file_id, template_name):
     """
     A function to delete a file using the provided file_id and template_name.
@@ -274,7 +269,7 @@ async def delete_file(request, file_id, template_name):
     Parameters:
     - request: The request object.
     - file_id: The id of the file to be deleted.
-    - template_name: The name of the template to determine the return_template.
+    - template_name: The name of  the  template to determine the return_template.
 
     Returns:
     - Redirects to the appropriate return_template based on the template_name.
@@ -287,17 +282,24 @@ async def delete_file(request, file_id, template_name):
         )
     await sync_to_async(get_cache_data)(request)
 
+    return_template = choice_return_template(template_name)
+    return redirect(return_template)
+
+
+def choice_return_template(template_name):
     match template_name:
-        case 'images':
+        case 'image':
             return_template = 'files:show_images'
-        case 'documents':
+        case 'document' | 'text' | 'pdf':
             return_template = 'files:show_documents'
-        case 'videos':
+        case 'video':
             return_template = 'files:show_videos'
         case 'other':
-            return_template = 'files:show_other'
-    print(template_name)
-    return redirect(return_template)
+            return_template = 'files:other'
+        case _:
+            return_template = 'files:listfiles'
+    return return_template
+
 
 
 @login_required
@@ -312,7 +314,7 @@ def show_images(request):
 @login_required
 def show_documents(request):
     """
-    Retrieve data from cache based on request and render documents.html with the retrieved data.
+    Retrieve data from cache based on request and render documents.html with   the retrieved data.
     :param request: The request object.
     :return: Rendered documents.html template with the documents context.
     """
