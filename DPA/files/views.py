@@ -128,6 +128,7 @@ async def open_file(request, file_id):
     return FileResponse(open(path_to_temporary_file, 'rb'))
 
 
+
 async def download_file(request, file_id):
     """
     Download a file from Google Drive using the provided file ID.
@@ -260,6 +261,7 @@ async def create_folder_on_drive(folder_name):
             return folder_res['id']
 
 
+
 async def delete_file(request, file_id, template_name):
     """
     A function to delete a file using the provided file_id and template_name.
@@ -297,6 +299,7 @@ def choice_return_template(template_name):
         case _:
             return_template = 'files:listfiles'
     return return_template
+
 
 
 @login_required
