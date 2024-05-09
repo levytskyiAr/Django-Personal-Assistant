@@ -1441,3 +1441,14 @@ Traceback (most recent call last):
                ^^^^^^^^
 NameError: name 'requests' is not defined
 
+Not Found: /favicon.ico
+Internal Server Error: /files/open/1y27GBfZnbWw8L-cSHhFL0z-yBm0WKI5s/
+Traceback (most recent call last):
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    self.check_response(response, callback)
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 337, in check_response
+    raise ValueError(
+ValueError: The view files.views.open_file didn't return an HttpResponse object. It returned an unawaited coroutine instead. You may need to add an 'await' into your view.
