@@ -31,5 +31,13 @@ Stay updated with the latest news or create, save, and edit notes.
 Manage your contacts and upload/download files as needed.
 Use the authentication and authorization features to control access to the app.
 Recover your password if needed.
+Contributing
+Fork the repository.
+Create a new branch: git checkout -b feature-name
+Make your changes and commit them: git commit -am 'Add new feature'
+Push to the branch: git push origin feature-name
+Submit a pull request.
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
 Support
 If you encounter any issues or have any questions, please feel free to contact us at rolmf85@gmail.com
