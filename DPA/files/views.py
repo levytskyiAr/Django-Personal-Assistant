@@ -126,6 +126,7 @@ async def open_file(request, file_id):
 
     return FileResponse(open(path_to_temporary_file, 'rb'))
 
+
 @login_required
 async def download_file(request, file_id):
     """
@@ -171,6 +172,7 @@ def clean_temp_folder():
     for filename in os.listdir(TEMP):
         file_path = os.path.join(TEMP, filename)
         os.unlink(file_path)
+
 
 @login_required
 def upload_file(request):
@@ -263,6 +265,7 @@ async def create_folder_on_drive(folder_name):
             print("Created folder successfully.\nFolder ID: {}".format(folder_res['id']))
             return folder_res['id']
 
+
 @login_required
 async def delete_file(request, file_id, template_name):
     """
@@ -296,6 +299,7 @@ async def delete_file(request, file_id, template_name):
     print(template_name)
     return redirect(return_template)
 
+
 @login_required
 def show_images(request):
     """
@@ -303,6 +307,7 @@ def show_images(request):
     """
     data = get_cache_data(request)
     return render(request, 'files/images.html', context={'images': data['images']})
+
 
 @login_required
 def show_documents(request):
@@ -313,6 +318,7 @@ def show_documents(request):
     """
     data = get_cache_data(request)
     return render(request, 'files/documents.html', context={'documents': data['documents']})
+
 
 @login_required
 def show_videos(request):
@@ -327,6 +333,7 @@ def show_videos(request):
     """
     data = get_cache_data(request)
     return render(request, 'files/videos.html', context={'videos': data['videos']})
+
 
 @login_required
 def show_other(request):
