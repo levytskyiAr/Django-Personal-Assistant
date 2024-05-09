@@ -1401,6 +1401,43 @@ django.db.utils.OperationalError: connection to server at "dpg-cop8gr0cmk4c739q4
 Not Found: /favicon.ico
 Not Found: /favicon.ico
 Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
-Not Found: /favicon.ico
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\bened\AppData\Local\pypoetry\Cache\virtualenvs\assistant-Mp1SmFtH-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bened\AppData\Local\pypoetry\Cache\virtualenvs\assistant-Mp1SmFtH-py3.12\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bened\Documents\coding\DPA1\Django-Personal-Assistant\DPA\users\views.py", line 131, in index
+    finance_news = get_finance_news()
+                   ^^^^^^^^^^^^^^^^
+NameError: name 'get_finance_news' is not defined. Did you mean: 'scrape_finance_news'?
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\bened\AppData\Local\pypoetry\Cache\virtualenvs\assistant-Mp1SmFtH-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bened\AppData\Local\pypoetry\Cache\virtualenvs\assistant-Mp1SmFtH-py3.12\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bened\Documents\coding\DPA1\Django-Personal-Assistant\DPA\users\views.py", line 131, in index
+    finance_news = get_finance_news()
+                   ^^^^^^^^^^^^^^^^
+NameError: name 'get_finance_news' is not defined. Did you mean: 'scrape_finance_news'?
+Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\bened\AppData\Local\pypoetry\Cache\virtualenvs\assistant-Mp1SmFtH-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bened\AppData\Local\pypoetry\Cache\virtualenvs\assistant-Mp1SmFtH-py3.12\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bened\Documents\coding\DPA1\Django-Personal-Assistant\DPA\users\views.py", line 117, in index
+    finance_news = get_finance_news()
+                   ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bened\Documents\coding\DPA1\Django-Personal-Assistant\DPA\users\finance_scraper.py", line 4, in get_finance_news
+    response = requests.get(url)
+               ^^^^^^^^
+NameError: name 'requests' is not defined
+

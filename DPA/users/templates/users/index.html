@@ -8,10 +8,19 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'users/style.css' %}">
     <title>Personal Assistant</title>
+    <style>
+        .news-header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row bg-primary py-3">
+        <div class="row bg-primary py-3 mb-3">
             <div class="col-md-8">
                 <h1 class="text-white">
                     <a href="/" class="text-decoration-none text-white">Personal Assistant</a>
@@ -29,15 +38,53 @@
                     <a href="/login" class="btn btn-light me-2">Login</a>
                 {% endif %}
             </div>
+            <div class="col-md-4 search-form">
+                <form method="GET" action="" class="d-flex">
+                    <input type="text" name="search_query" placeholder="Search">
+                    <button type="submit" class="btn btn-light">Search</button>
+                </form>
+            </div>
         </div>
 
         <div class="row">
             <div class="col-md-12">
-                {% block content %}
-                {% endblock %}
+                <div class="news-section" id="news-section">
+                    <h2 class="news-header">Fresh News</h2>
+                    <!-- Search form -->
+                    <ul class="news-list" style="display: none;">
+                        {% for news_item in news_list %}
+                        <li>
+                            <h3><a href="{{ news_item.link }}">{{ news_item.title }}</a></h3>
+                            <p>{{ news_item.content }}</p>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var newsHeader = document.querySelector('.news-header');
+            var newsList = document.querySelector('.news-list');
+
+            newsHeader.addEventListener('click', function() {
+                if (newsList.style.display === 'none') {
+                    newsList.style.display = 'block';
+                } else {
+                    newsList.style.display = 'none';
+                }
+            });
+
+            var personalAssistant = document.querySelector('.text-decoration-none');
+            personalAssistant.addEventListener('click', function() {
+                if (newsList.style.display === 'block') {
+                    newsList.style.display = 'none';
+                }
+            });
+        });
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-B6sLOLr/6+oqM5fCMtG5qH0cSAO6qDl3jI4gW2G14NC7Glg7mGFPp4XuhFffTJf3" crossorigin="anonymous"></script>
 </body>
