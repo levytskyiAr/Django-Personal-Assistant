@@ -1643,3 +1643,184 @@ Traceback (most recent call last):
     for filename in os.listdir(TEMP):
                     ^^^^^^^^^^^^^^^^
 FileNotFoundError: [WinError 3] The system cannot find the path specified: 'media/uploads/temp'
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Not Found: /favicon.ico
+Internal Server Error: /files/delete/1ma7hLJDCbMkP8NeJfUguTFI9hQjYA8yx/image
+Traceback (most recent call last):
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\asgiref\sync.py", line 254, in __call__
+    return call_result.result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\asgiref\sync.py", line 331, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\views.py", line 278, in delete_file
+    await aiogoogle.as_user(
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\client.py", line 254, in as_user
+    return await self.send(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\client.py", line 409, in send
+    return await session.send(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\sessions\aiohttp_session.py", line 186, in send
+    results = await schedule_tasks()
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\sessions\aiohttp_session.py", line 171, in schedule_tasks
+    return await asyncio.gather(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\sessions\aiohttp_session.py", line 165, in get_content
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\sessions\aiohttp_session.py", line 161, in get_response
+    response.raise_for_status()
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\models.py", line 480, in raise_for_status
+    raise HTTPError(msg=self.reason, req=self.req, res=self)
+aiogoogle.excs.HTTPError: 
+
+
+
+Not Found
+
+Content:
+{'code': 404,
+ 'errors': [{'domain': 'global',
+             'location': 'fileId',
+             'locationType': 'parameter',
+             'message': 'File not found: 1ma7hLJDCbMkP8NeJfUguTFI9hQjYA8yx.',
+             'reason': 'notFound'}],
+ 'message': 'File not found: 1ma7hLJDCbMkP8NeJfUguTFI9hQjYA8yx.'}
+
+Request URL:
+https://www.googleapis.com/drive/v3/files/1ma7hLJDCbMkP8NeJfUguTFI9hQjYA8yx
+Internal Server Error: /files/delete/1ma7hLJDCbMkP8NeJfUguTFI9hQjYA8yx/image
+Traceback (most recent call last):
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\asgiref\sync.py", line 254, in __call__
+    return call_result.result()
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\Programs\Python\Python312\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\asgiref\sync.py", line 331, in main_wrap
+    result = await self.awaitable(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\views.py", line 278, in delete_file
+    await aiogoogle.as_user(
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\client.py", line 254, in as_user
+    return await self.send(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\client.py", line 409, in send
+    return await session.send(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\sessions\aiohttp_session.py", line 186, in send
+    results = await schedule_tasks()
+              ^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\sessions\aiohttp_session.py", line 171, in schedule_tasks
+    return await asyncio.gather(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\sessions\aiohttp_session.py", line 165, in get_content
+    response = await get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\sessions\aiohttp_session.py", line 161, in get_response
+    response.raise_for_status()
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\aiogoogle\models.py", line 480, in raise_for_status
+    raise HTTPError(msg=self.reason, req=self.req, res=self)
+aiogoogle.excs.HTTPError: 
+
+
+
+Not Found
+
+Content:
+{'code': 404,
+ 'errors': [{'domain': 'global',
+             'location': 'fileId',
+             'locationType': 'parameter',
+             'message': 'File not found: 1ma7hLJDCbMkP8NeJfUguTFI9hQjYA8yx.',
+             'reason': 'notFound'}],
+ 'message': 'File not found: 1ma7hLJDCbMkP8NeJfUguTFI9hQjYA8yx.'}
+
+Request URL:
+https://www.googleapis.com/drive/v3/files/1ma7hLJDCbMkP8NeJfUguTFI9hQjYA8yx
+Not Found: /favicon.ico
+Internal Server Error: /files/documents/
+Traceback (most recent call last):
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\views.py", line 320, in show_documents
+    return render(request, 'files/documents.html', context={'documents': data['documents']})
+                                                                         ~~~~^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\http\response.py", line 199, in __getitem__
+    return self.headers[header]
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\utils\datastructures.py", line 308, in __getitem__
+    return self._store[key.lower()][1]
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'documents'
+Internal Server Error: /files/images/
+Traceback (most recent call last):
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\views.py", line 309, in show_images
+    return render(request, 'files/images.html', context={'images': data['images']})
+                                                                   ~~~~^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\http\response.py", line 199, in __getitem__
+    return self.headers[header]
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\utils\datastructures.py", line 308, in __getitem__
+    return self._store[key.lower()][1]
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'images'
+Internal Server Error: /files/documents/
+Traceback (most recent call last):
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\RollPy\Documents\GitHub\Django-Personal-Assistant\DPA\files\views.py", line 321, in show_documents
+    return render(request, 'files/documents.html', context={'documents': data['documents']})
+                                                                         ~~~~^^^^^^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\http\response.py", line 199, in __getitem__
+    return self.headers[header]
+           ~~~~~~~~~~~~^^^^^^^^
+  File "C:\Users\RollPy\AppData\Local\pypoetry\Cache\virtualenvs\assistant-SImE5PKe-py3.12\Lib\site-packages\django\utils\datastructures.py", line 308, in __getitem__
+    return self._store[key.lower()][1]
+           ~~~~~~~~~~~^^^^^^^^^^^^^
+KeyError: 'documents'

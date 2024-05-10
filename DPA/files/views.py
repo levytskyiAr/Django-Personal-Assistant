@@ -19,17 +19,14 @@ TEMP = f'media/uploads/temp'
 
 
 def get_cache_data(request):
-    """
-    Get cache data for the given request user and store it with a timeout of 3600 seconds.
+    print('Data from cache')
+    return cache.get(request.user.id)
 
-    Parameters:
-    - request: the request object containing user information
 
-    Returns:
-    - The data retrieved from the file list for the user
-    """
+def update_cache_data(request):
     data = async_to_sync(get_file_list_from_drive)(get_folder_id_by_user(request.user))
     cache.set(request.user.id, data, timeout=3600)
+    print('Data from Google Drive')
     return data
 
 
@@ -60,9 +57,9 @@ def get_filelist_from_drive(request):
     - Renders a template with the file list data for documents, images, videos, and other file types, along with the user ID
     """
     clean_temp_folder()
-    data = cache.get(request.user.id)
+    data = get_cache_data(request)
     if not data:
-        data = get_cache_data(request)
+        data = update_cache_data(request)
     return render(request, 'files/base_for_files.html',
                   {'documents': data['documents'],
                    'images': data['images'], 'videos': data['videos'],
@@ -197,7 +194,7 @@ def upload_file(request):
                 for chunk in uploaded_file.chunks():
                     destination.write(chunk)
             async_to_sync(upload_file_to_drive)(temp_file, uploaded_file.name, folder_id=folder_id)
-            get_cache_data(request)
+            update_cache_data(request)
             os.remove(temp_file)
             return_template = choice_return_template(mime_type.split('/')[0])
             return redirect(return_template)
@@ -260,7 +257,7 @@ async def create_folder_on_drive(folder_name):
             return folder_res['id']
 
 
-async def delete_file(request, file_id, template_name):
+async def delete_file(request, file_id):
     """
     A function to delete a file using the provided file_id and template_name.
 
@@ -278,24 +275,25 @@ async def delete_file(request, file_id, template_name):
         await aiogoogle.as_user(
             drive_v3.files.delete(fileId=file_id)
         )
-    await sync_to_async(get_cache_data)(request)
-
-    return_template = choice_return_template(template_name)
+    await sync_to_async(update_cache_data)(request)
+    return_template = choice_return_template(request.headers['Referer'].split('/')[-2])
     return redirect(return_template)
 
 
 def choice_return_template(template_name):
+    print(template_name)
     match template_name:
-        case 'image':
+        case 'image' | 'images':
             return_template = 'files:show_images'
-        case 'document' | 'text' | 'pdf':
+
+        case 'document' | 'text' | 'application' | 'documents':
             return_template = 'files:show_documents'
-        case 'video':
+
+        case 'video' | 'videos':
             return_template = 'files:show_videos'
-        case 'other':
-            return_template = 'files:other'
+
         case _:
-            return_template = 'files:listfiles'
+            return_template = 'files:other'
     return return_template
 
 
