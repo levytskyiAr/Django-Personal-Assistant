@@ -58,7 +58,7 @@
 			  <p>File will be deleted. Are you sure?</p>
 			</div>
 			<div class="modal-footer">
-			  <form id="deleteForm" method="post" action="{% url 'files:delete_file' id 'other' %}">
+			  <form id="deleteForm" method="post" action="{% url 'files:delete_file' id  %}">
 				{% csrf_token %}
 				<button id="confirmDelete" type="submit" class="btn btn-danger">Yes</button>
 				<button type="button" class="btn btn-default" onclick="closeModal()">Cancel</button>
