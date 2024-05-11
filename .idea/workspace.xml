@@ -19,6 +19,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_COMMON_BRANCH" value="main" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
@@ -62,7 +67,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;async__cloud&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;readmi&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/RollPy/Documents/GitHub/Django-Personal-Assistant&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
@@ -288,53 +293,21 @@
       <option name="project" value="LOCAL" />
       <updated>1715194976175</updated>
     </task>
-    <task id="LOCAL-00007" summary="'cleaning'">
+    <task id="LOCAL-00007" summary="Add readmi and requirements_txt">
       <option name="closed" value="true" />
-      <created>1715195515323</created>
+      <created>1715249173017</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1715195515323</updated>
+      <updated>1715249173017</updated>
     </task>
-    <task id="LOCAL-00008" summary="'m'">
+    <task id="LOCAL-00008" summary="Edit README">
       <option name="closed" value="true" />
-      <created>1715230650026</created>
+      <created>1715252218757</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1715230650026</updated>
-    </task>
-    <task id="LOCAL-00009" summary="final version">
-      <option name="closed" value="true" />
-      <created>1715241789553</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1715241789553</updated>
-    </task>
-    <task id="LOCAL-00010" summary="final version v2">
-      <option name="closed" value="true" />
-      <created>1715243286609</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1715243286609</updated>
-    </task>
-    <task id="LOCAL-00011" summary="final version v2">
-      <option name="closed" value="true" />
-      <created>1715243745109</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1715243745109</updated>
-    </task>
-    <task id="LOCAL-00012" summary="final version v3">
-      <option name="closed" value="true" />
-      <created>1715243964476</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1715243964476</updated>
+      <updated>1715252218757</updated>
     </task>
     <task id="LOCAL-00013" summary="fix media">
       <option name="closed" value="true" />
@@ -352,7 +325,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="readmi" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

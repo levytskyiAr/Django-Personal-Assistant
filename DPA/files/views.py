@@ -125,6 +125,7 @@ async def open_file(request, file_id):
     return FileResponse(open(path_to_temporary_file, 'rb'))
 
 
+
 async def download_file(request, file_id):
     """
     Download a file from Google Drive using the provided file ID.
@@ -295,6 +296,7 @@ def choice_return_template(template_name):
         case _:
             return_template = 'files:other'
     return return_template
+
 
 
 @login_required
